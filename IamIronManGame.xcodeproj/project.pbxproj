@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		864C878C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878B2A554D9900EFC5C3 /* AppDelegate.swift */; };
+		864C878E2A554D9900EFC5C3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878D2A554D9900EFC5C3 /* GameViewController.swift */; };
+		864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C878F2A554D9900EFC5C3 /* Main.storyboard */; };
+		864C87942A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */; };
+		864C879C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C879B2A554D9900EFC5C3 /* AppDelegate.swift */; };
+		864C879E2A554D9900EFC5C3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C879D2A554D9900EFC5C3 /* GameViewController.swift */; };
+		864C87A12A554D9900EFC5C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C879F2A554D9900EFC5C3 /* Main.storyboard */; };
+		864C87A42A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C87A22A554D9900EFC5C3 /* LaunchScreen.storyboard */; };
+		864C87AC2A554D9900EFC5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C87AB2A554D9900EFC5C3 /* AppDelegate.swift */; };
+		864C87AE2A554D9900EFC5C3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C87AD2A554D9900EFC5C3 /* GameViewController.swift */; };
+		864C87B12A554D9900EFC5C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C87AF2A554D9900EFC5C3 /* Main.storyboard */; };
+		864C87B32A554D9900EFC5C3 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C87812A554D9800EFC5C3 /* GameController.swift */; };
+		864C87B42A554D9900EFC5C3 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C87812A554D9800EFC5C3 /* GameController.swift */; };
+		864C87B52A554D9900EFC5C3 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C87812A554D9800EFC5C3 /* GameController.swift */; };
+		864C87B62A554D9900EFC5C3 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87822A554D9800EFC5C3 /* Art.scnassets */; };
+		864C87B72A554D9900EFC5C3 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87822A554D9800EFC5C3 /* Art.scnassets */; };
+		864C87B82A554D9900EFC5C3 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87822A554D9800EFC5C3 /* Art.scnassets */; };
+		864C87B92A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
+		864C87BA2A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
+		864C87BB2A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		864C87812A554D9800EFC5C3 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		864C87822A554D9800EFC5C3 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
+		864C87832A554D9900EFC5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		864C87882A554D9900EFC5C3 /* IamIronManGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IamIronManGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		864C878B2A554D9900EFC5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		864C878D2A554D9900EFC5C3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		864C87902A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		864C87932A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		864C87992A554D9900EFC5C3 /* IamIronManGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IamIronManGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		864C879B2A554D9900EFC5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		864C879D2A554D9900EFC5C3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		864C87A02A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		864C87A32A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		864C87A92A554D9900EFC5C3 /* IamIronManGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IamIronManGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		864C87AB2A554D9900EFC5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		864C87AD2A554D9900EFC5C3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		864C87B02A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		864C87B22A554D9900EFC5C3 /* IamIronManGame_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IamIronManGame_macOS.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		864C87852A554D9900EFC5C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864C87962A554D9900EFC5C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864C87A62A554D9900EFC5C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		864C877B2A554D9700EFC5C3 = {
+			isa = PBXGroup;
+			children = (
+				864C87802A554D9800EFC5C3 /* IamIronManGame Shared */,
+				864C878A2A554D9900EFC5C3 /* IamIronManGame iOS */,
+				864C879A2A554D9900EFC5C3 /* IamIronManGame tvOS */,
+				864C87AA2A554D9900EFC5C3 /* IamIronManGame macOS */,
+				864C87892A554D9900EFC5C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		864C87802A554D9800EFC5C3 /* IamIronManGame Shared */ = {
+			isa = PBXGroup;
+			children = (
+				864C87812A554D9800EFC5C3 /* GameController.swift */,
+				864C87822A554D9800EFC5C3 /* Art.scnassets */,
+				864C87832A554D9900EFC5C3 /* Assets.xcassets */,
+			);
+			path = "IamIronManGame Shared";
+			sourceTree = "<group>";
+		};
+		864C87892A554D9900EFC5C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				864C87882A554D9900EFC5C3 /* IamIronManGame.app */,
+				864C87992A554D9900EFC5C3 /* IamIronManGame.app */,
+				864C87A92A554D9900EFC5C3 /* IamIronManGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		864C878A2A554D9900EFC5C3 /* IamIronManGame iOS */ = {
+			isa = PBXGroup;
+			children = (
+				864C878B2A554D9900EFC5C3 /* AppDelegate.swift */,
+				864C878D2A554D9900EFC5C3 /* GameViewController.swift */,
+				864C878F2A554D9900EFC5C3 /* Main.storyboard */,
+				864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */,
+			);
+			path = "IamIronManGame iOS";
+			sourceTree = "<group>";
+		};
+		864C879A2A554D9900EFC5C3 /* IamIronManGame tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				864C879B2A554D9900EFC5C3 /* AppDelegate.swift */,
+				864C879D2A554D9900EFC5C3 /* GameViewController.swift */,
+				864C879F2A554D9900EFC5C3 /* Main.storyboard */,
+				864C87A22A554D9900EFC5C3 /* LaunchScreen.storyboard */,
+			);
+			path = "IamIronManGame tvOS";
+			sourceTree = "<group>";
+		};
+		864C87AA2A554D9900EFC5C3 /* IamIronManGame macOS */ = {
+			isa = PBXGroup;
+			children = (
+				864C87AB2A554D9900EFC5C3 /* AppDelegate.swift */,
+				864C87AD2A554D9900EFC5C3 /* GameViewController.swift */,
+				864C87AF2A554D9900EFC5C3 /* Main.storyboard */,
+				864C87B22A554D9900EFC5C3 /* IamIronManGame_macOS.entitlements */,
+			);
+			path = "IamIronManGame macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		864C87872A554D9900EFC5C3 /* IamIronManGame iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 864C87BE2A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame iOS" */;
+			buildPhases = (
+				864C87842A554D9900EFC5C3 /* Sources */,
+				864C87852A554D9900EFC5C3 /* Frameworks */,
+				864C87862A554D9900EFC5C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IamIronManGame iOS";
+			productName = "IamIronManGame iOS";
+			productReference = 864C87882A554D9900EFC5C3 /* IamIronManGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		864C87982A554D9900EFC5C3 /* IamIronManGame tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 864C87C12A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame tvOS" */;
+			buildPhases = (
+				864C87952A554D9900EFC5C3 /* Sources */,
+				864C87962A554D9900EFC5C3 /* Frameworks */,
+				864C87972A554D9900EFC5C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IamIronManGame tvOS";
+			productName = "IamIronManGame tvOS";
+			productReference = 864C87992A554D9900EFC5C3 /* IamIronManGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		864C87A82A554D9900EFC5C3 /* IamIronManGame macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 864C87C42A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame macOS" */;
+			buildPhases = (
+				864C87A52A554D9900EFC5C3 /* Sources */,
+				864C87A62A554D9900EFC5C3 /* Frameworks */,
+				864C87A72A554D9900EFC5C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IamIronManGame macOS";
+			productName = "IamIronManGame macOS";
+			productReference = 864C87A92A554D9900EFC5C3 /* IamIronManGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		864C877C2A554D9700EFC5C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					864C87872A554D9900EFC5C3 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					864C87982A554D9900EFC5C3 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					864C87A82A554D9900EFC5C3 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 864C877F2A554D9700EFC5C3 /* Build configuration list for PBXProject "IamIronManGame" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 864C877B2A554D9700EFC5C3;
+			productRefGroup = 864C87892A554D9900EFC5C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				864C87872A554D9900EFC5C3 /* IamIronManGame iOS */,
+				864C87982A554D9900EFC5C3 /* IamIronManGame tvOS */,
+				864C87A82A554D9900EFC5C3 /* IamIronManGame macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		864C87862A554D9900EFC5C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */,
+				864C87942A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */,
+				864C87B92A554D9900EFC5C3 /* Assets.xcassets in Resources */,
+				864C87B62A554D9900EFC5C3 /* Art.scnassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864C87972A554D9900EFC5C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864C87A12A554D9900EFC5C3 /* Main.storyboard in Resources */,
+				864C87A42A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */,
+				864C87BA2A554D9900EFC5C3 /* Assets.xcassets in Resources */,
+				864C87B72A554D9900EFC5C3 /* Art.scnassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864C87A72A554D9900EFC5C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864C87B12A554D9900EFC5C3 /* Main.storyboard in Resources */,
+				864C87BB2A554D9900EFC5C3 /* Assets.xcassets in Resources */,
+				864C87B82A554D9900EFC5C3 /* Art.scnassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		864C87842A554D9900EFC5C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864C878E2A554D9900EFC5C3 /* GameViewController.swift in Sources */,
+				864C87B32A554D9900EFC5C3 /* GameController.swift in Sources */,
+				864C878C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864C87952A554D9900EFC5C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864C879E2A554D9900EFC5C3 /* GameViewController.swift in Sources */,
+				864C87B42A554D9900EFC5C3 /* GameController.swift in Sources */,
+				864C879C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		864C87A52A554D9900EFC5C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				864C87AE2A554D9900EFC5C3 /* GameViewController.swift in Sources */,
+				864C87B52A554D9900EFC5C3 /* GameController.swift in Sources */,
+				864C87AC2A554D9900EFC5C3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		864C878F2A554D9900EFC5C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				864C87902A554D9900EFC5C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				864C87932A554D9900EFC5C3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		864C879F2A554D9900EFC5C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				864C87A02A554D9900EFC5C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		864C87A22A554D9900EFC5C3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				864C87A32A554D9900EFC5C3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		864C87AF2A554D9900EFC5C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				864C87B02A554D9900EFC5C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		864C87BC2A554D9900EFC5C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		864C87BD2A554D9900EFC5C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		864C87BF2A554D9900EFC5C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_NAME = IamIronManGame;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		864C87C02A554D9900EFC5C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_NAME = IamIronManGame;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		864C87C22A554D9900EFC5C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_NAME = IamIronManGame;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 16.1;
+			};
+			name = Debug;
+		};
+		864C87C32A554D9900EFC5C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_NAME = IamIronManGame;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 16.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		864C87C52A554D9900EFC5C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "IamIronManGame macOS/IamIronManGame_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_NAME = IamIronManGame;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		864C87C62A554D9900EFC5C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "IamIronManGame macOS/IamIronManGame_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_NAME = IamIronManGame;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		864C877F2A554D9700EFC5C3 /* Build configuration list for PBXProject "IamIronManGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				864C87BC2A554D9900EFC5C3 /* Debug */,
+				864C87BD2A554D9900EFC5C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		864C87BE2A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				864C87BF2A554D9900EFC5C3 /* Debug */,
+				864C87C02A554D9900EFC5C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		864C87C12A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				864C87C22A554D9900EFC5C3 /* Debug */,
+				864C87C32A554D9900EFC5C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		864C87C42A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				864C87C52A554D9900EFC5C3 /* Debug */,
+				864C87C62A554D9900EFC5C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 864C877C2A554D9700EFC5C3 /* Project object */;
+}
