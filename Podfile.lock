@@ -4,27 +4,45 @@ PODS:
   - GoogleToolboxForMac/Logger (2.3.2):
     - GoogleToolboxForMac/Defines (= 2.3.2)
   - GTMSessionFetcher/Core (1.7.2)
+  - GTProgressBar (0.3.3)
   - GVRSDK (1.170.0):
     - GoogleToolboxForMac/Logger (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - BeerKit
+  - GTProgressBar
   - GVRSDK
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   trunk:
     - BeerKit
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - GTProgressBar
     - GVRSDK
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   BeerKit: d6d139620f0ba7a558f014758ebea54d27b06be7
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  GTProgressBar: a480283ecb0ada50de16c71e634892826928f640
   GVRSDK: 690e9ca3e4d6161b84ff25519447ed2f53e0eb0b
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: b349b60b5be1cf00434831ee07c118c9759eb9d9
+PODFILE CHECKSUM: 3946f38e2e31a290ba20f3485d361a5254d12a38
 
 COCOAPODS: 1.10.1

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wgd-6R-v1d">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Continue View Controller-->
+        <scene sceneID="ZMJ-l9-MFV">
+            <objects>
+                <viewController storyboardIdentifier="ContinueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wgd-6R-v1d" customClass="ContinueViewController" customModule="AquaVSTaimei" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bk9-c9-uWM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjB-QW-JMu">
+                                <rect key="frame" x="100" y="332.5" width="214" height="41"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61k-T7-WXd">
+                                <rect key="frame" x="221.5" y="403" width="121" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Kry-DE-Ard"/>
+                                    <constraint firstAttribute="width" constant="121" id="r6R-91-T3H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="60"/>
+                                <state key="normal" title="YES">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesContinue:" destination="Wgd-6R-v1d" eventType="touchUpInside" id="8He-Jj-mf1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMY-VG-pcC">
+                                <rect key="frame" x="77" y="408" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="UPp-lt-drC"/>
+                                    <constraint firstAttribute="width" constant="80" id="qpM-pf-Jyy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="50"/>
+                                <state key="normal" title="NO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="noContinue:" destination="Wgd-6R-v1d" eventType="touchUpInside" id="Bfr-Rk-Hpd"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAME OVER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2sI-0j-ht9">
+                                <rect key="frame" x="26" y="417.5" width="362" height="61"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXK-sV-w7J">
+                                <rect key="frame" x="314" y="0.0" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="FKV-kJ-Fgl"/>
+                                    <constraint firstAttribute="height" constant="100" id="u0s-zk-qec"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="showSideMenu:" destination="Wgd-6R-v1d" eventType="touchUpInside" id="1jA-Uf-I17"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xEi-Qf-r9i"/>
+                        <constraints>
+                            <constraint firstItem="pXK-sV-w7J" firstAttribute="trailing" secondItem="xEi-Qf-r9i" secondAttribute="trailing" id="2f0-Zh-Jco"/>
+                            <constraint firstItem="61k-T7-WXd" firstAttribute="centerY" secondItem="Bk9-c9-uWM" secondAttribute="centerY" id="BQV-Qu-bD3"/>
+                            <constraint firstItem="2sI-0j-ht9" firstAttribute="centerY" secondItem="Bk9-c9-uWM" secondAttribute="centerY" id="JPJ-rk-iKQ"/>
+                            <constraint firstItem="ZMY-VG-pcC" firstAttribute="centerY" secondItem="Bk9-c9-uWM" secondAttribute="centerY" id="MeS-Un-61t"/>
+                            <constraint firstItem="pXK-sV-w7J" firstAttribute="top" secondItem="Bk9-c9-uWM" secondAttribute="top" id="NjT-Ej-0hL"/>
+                            <constraint firstItem="61k-T7-WXd" firstAttribute="centerX" secondItem="xEi-Qf-r9i" secondAttribute="centerX" constant="75" id="Pan-mh-HM6"/>
+                            <constraint firstItem="ZMY-VG-pcC" firstAttribute="centerX" secondItem="Bk9-c9-uWM" secondAttribute="centerX" constant="-90" id="SVY-Yg-PhY"/>
+                            <constraint firstItem="rjB-QW-JMu" firstAttribute="centerX" secondItem="Bk9-c9-uWM" secondAttribute="centerX" id="Y4G-Ul-VPS"/>
+                            <constraint firstItem="rjB-QW-JMu" firstAttribute="centerY" secondItem="xEi-Qf-r9i" secondAttribute="centerY" constant="-100" id="dFN-5f-tNS"/>
+                            <constraint firstItem="2sI-0j-ht9" firstAttribute="centerX" secondItem="Bk9-c9-uWM" secondAttribute="centerX" id="iOv-N2-RKe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="continueLabel" destination="rjB-QW-JMu" id="yMc-eQ-9Dg"/>
+                        <outlet property="gameOverLabel" destination="2sI-0j-ht9" id="C23-Kr-piK"/>
+                        <outlet property="noButton" destination="ZMY-VG-pcC" id="mpP-21-4V5"/>
+                        <outlet property="yesButton" destination="61k-T7-WXd" id="Dmg-FC-t2X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="to9-kE-GUj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73.913043478260875" y="165.40178571428569"/>
+        </scene>
+    </scenes>
+</document>
