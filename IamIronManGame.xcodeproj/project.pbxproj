@@ -10,7 +10,7 @@
 		01DCC99E78BC6FF6B1AECB9A /* Pods_IamIronManGame_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */; };
 		1DAD4E188CF92E0B7A541C06 /* Pods_IamIronManGame_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */; };
 		864C878C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878B2A554D9900EFC5C3 /* AppDelegate.swift */; };
-		864C878E2A554D9900EFC5C3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878D2A554D9900EFC5C3 /* GameViewController.swift */; };
+		864C878E2A554D9900EFC5C3 /* BluetoothTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878D2A554D9900EFC5C3 /* BluetoothTestViewController.swift */; };
 		864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C878F2A554D9900EFC5C3 /* Main.storyboard */; };
 		864C87942A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */; };
 		864C879C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C879B2A554D9900EFC5C3 /* AppDelegate.swift */; };
@@ -32,6 +32,27 @@
 		867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */; };
 		86C40BC02A7540070040189E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BBF2A7540070040189E /* TopViewController.swift */; };
 		86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40BC12A7540130040189E /* TopViewController.storyboard */; };
+		86C40BE42A75438E0040189E /* GameConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BC42A75438E0040189E /* GameConst.swift */; };
+		86C40BE52A75438E0040189E /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BC52A75438E0040189E /* WeaponType.swift */; };
+		86C40BE72A75438E0040189E /* SoundConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BC72A75438E0040189E /* SoundConst.swift */; };
+		86C40BEA2A75438E0040189E /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BCB2A75438E0040189E /* UIImageView+Extension.swift */; };
+		86C40BEB2A75438E0040189E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BCC2A75438E0040189E /* UIViewController+Extension.swift */; };
+		86C40BEC2A75438E0040189E /* UIViewController+RxLifeCycleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BCD2A75438E0040189E /* UIViewController+RxLifeCycleEvents.swift */; };
+		86C40BED2A75438E0040189E /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BCE2A75438E0040189E /* Storyboard+Extension.swift */; };
+		86C40BEE2A75438E0040189E /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BCF2A75438E0040189E /* Font+Extension.swift */; };
+		86C40BEF2A75438E0040189E /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BD02A75438E0040189E /* UserDefaults+Extension.swift */; };
+		86C40BF02A75438E0040189E /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BD12A75438E0040189E /* UIScrollView+Extension.swift */; };
+		86C40BF32A75438E0040189E /* AudioUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BD52A75438E0040189E /* AudioUtil.swift */; };
+		86C40BF42A75438E0040189E /* CameraAuthUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BD62A75438E0040189E /* CameraAuthUtil.swift */; };
+		86C40BF72A75438E0040189E /* SceneNodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BD92A75438E0040189E /* SceneNodeUtil.swift */; };
+		86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BDA2A75438E0040189E /* SceneAnimationUtil.swift */; };
+		86C40C002A75438E0040189E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BE32A75438E0040189E /* GameViewModel.swift */; };
+		86C40C022A7544C60040189E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C012A7544C60040189E /* GameViewController.swift */; };
+		86C40C102A7545930040189E /* BulletsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C082A7545930040189E /* BulletsHolder.swift */; };
+		86C40C112A7545930040189E /* GameSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C092A7545930040189E /* GameSceneManager.swift */; };
+		86C40C132A7545930040189E /* MotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C0B2A7545930040189E /* MotionDetector.swift */; };
+		86C40C152A7545930040189E /* CurrentWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C0D2A7545930040189E /* CurrentWeapon.swift */; };
+		86C40C182A7547930040189E /* GameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C172A7547930040189E /* GameViewController.storyboard */; };
 		CC3364836C96AC8C1C3E25B8 /* Pods_IamIronManGame_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E08F99870AFBCEE4AD3CB03 /* Pods_IamIronManGame_macOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +68,7 @@
 		864C87832A554D9900EFC5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		864C87882A554D9900EFC5C3 /* IamIronManGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IamIronManGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C878B2A554D9900EFC5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		864C878D2A554D9900EFC5C3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		864C878D2A554D9900EFC5C3 /* BluetoothTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTestViewController.swift; sourceTree = "<group>"; };
 		864C87902A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		864C87932A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		864C87992A554D9900EFC5C3 /* IamIronManGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IamIronManGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +85,27 @@
 		867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewSettingUtil.swift; sourceTree = "<group>"; };
 		86C40BBF2A7540070040189E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		86C40BC12A7540130040189E /* TopViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopViewController.storyboard; sourceTree = "<group>"; };
+		86C40BC42A75438E0040189E /* GameConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConst.swift; sourceTree = "<group>"; };
+		86C40BC52A75438E0040189E /* WeaponType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
+		86C40BC72A75438E0040189E /* SoundConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundConst.swift; sourceTree = "<group>"; };
+		86C40BCB2A75438E0040189E /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		86C40BCC2A75438E0040189E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		86C40BCD2A75438E0040189E /* UIViewController+RxLifeCycleEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+RxLifeCycleEvents.swift"; sourceTree = "<group>"; };
+		86C40BCE2A75438E0040189E /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
+		86C40BCF2A75438E0040189E /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		86C40BD02A75438E0040189E /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		86C40BD12A75438E0040189E /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		86C40BD52A75438E0040189E /* AudioUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUtil.swift; sourceTree = "<group>"; };
+		86C40BD62A75438E0040189E /* CameraAuthUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAuthUtil.swift; sourceTree = "<group>"; };
+		86C40BD92A75438E0040189E /* SceneNodeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneNodeUtil.swift; sourceTree = "<group>"; };
+		86C40BDA2A75438E0040189E /* SceneAnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneAnimationUtil.swift; sourceTree = "<group>"; };
+		86C40BE32A75438E0040189E /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		86C40C012A7544C60040189E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		86C40C082A7545930040189E /* BulletsHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletsHolder.swift; sourceTree = "<group>"; };
+		86C40C092A7545930040189E /* GameSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneManager.swift; sourceTree = "<group>"; };
+		86C40C0B2A7545930040189E /* MotionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetector.swift; sourceTree = "<group>"; };
+		86C40C0D2A7545930040189E /* CurrentWeapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeapon.swift; sourceTree = "<group>"; };
+		86C40C172A7547930040189E /* GameViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameViewController.storyboard; sourceTree = "<group>"; };
 		A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame tvOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame tvOS/Pods-IamIronManGame tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,10 +186,16 @@
 			isa = PBXGroup;
 			children = (
 				86596F0E2A74FE2C00B7B8DC /* IamIronManGame-iOS-Info.plist */,
-				867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */,
 				864C878B2A554D9900EFC5C3 /* AppDelegate.swift */,
-				864C878D2A554D9900EFC5C3 /* GameViewController.swift */,
+				86C40BC32A75438E0040189E /* Const */,
+				86C40BCA2A75438E0040189E /* Extension */,
+				86C40BD22A75438E0040189E /* Utility */,
+				86C40C052A7545930040189E /* Manager */,
+				86C40BDB2A75438E0040189E /* ViewModel */,
+				864C878D2A554D9900EFC5C3 /* BluetoothTestViewController.swift */,
 				864C878F2A554D9900EFC5C3 /* Main.storyboard */,
+				86C40C012A7544C60040189E /* GameViewController.swift */,
+				86C40C172A7547930040189E /* GameViewController.storyboard */,
 				86C40BBF2A7540070040189E /* TopViewController.swift */,
 				86C40BC12A7540130040189E /* TopViewController.storyboard */,
 				864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */,
@@ -175,6 +223,70 @@
 				864C87B22A554D9900EFC5C3 /* IamIronManGame_macOS.entitlements */,
 			);
 			path = "IamIronManGame macOS";
+			sourceTree = "<group>";
+		};
+		86C40BC32A75438E0040189E /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				86C40BC42A75438E0040189E /* GameConst.swift */,
+				86C40BC52A75438E0040189E /* WeaponType.swift */,
+				86C40BC72A75438E0040189E /* SoundConst.swift */,
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
+		86C40BCA2A75438E0040189E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				86C40BCB2A75438E0040189E /* UIImageView+Extension.swift */,
+				86C40BCC2A75438E0040189E /* UIViewController+Extension.swift */,
+				86C40BCD2A75438E0040189E /* UIViewController+RxLifeCycleEvents.swift */,
+				86C40BCE2A75438E0040189E /* Storyboard+Extension.swift */,
+				86C40BCF2A75438E0040189E /* Font+Extension.swift */,
+				86C40BD02A75438E0040189E /* UserDefaults+Extension.swift */,
+				86C40BD12A75438E0040189E /* UIScrollView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		86C40BD22A75438E0040189E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				86C40BD52A75438E0040189E /* AudioUtil.swift */,
+				86C40BD62A75438E0040189E /* CameraAuthUtil.swift */,
+				867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */,
+				86C40BD92A75438E0040189E /* SceneNodeUtil.swift */,
+				86C40BDA2A75438E0040189E /* SceneAnimationUtil.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		86C40BDB2A75438E0040189E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				86C40BE32A75438E0040189E /* GameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		86C40C052A7545930040189E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				86C40C062A7545930040189E /* Game */,
+			);
+			name = Manager;
+			path = "../../AR-GunMan/AR-GunMan/Manager";
+			sourceTree = "<group>";
+		};
+		86C40C062A7545930040189E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				86C40C082A7545930040189E /* BulletsHolder.swift */,
+				86C40C092A7545930040189E /* GameSceneManager.swift */,
+				86C40C0B2A7545930040189E /* MotionDetector.swift */,
+				86C40C0D2A7545930040189E /* CurrentWeapon.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		B066C199BA4BA670D0FCDC28 /* Pods */ = {
@@ -298,6 +410,7 @@
 				864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */,
 				864C87942A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */,
 				864C87B92A554D9900EFC5C3 /* Assets.xcassets in Resources */,
+				86C40C182A7547930040189E /* GameViewController.storyboard in Resources */,
 				864C87B62A554D9900EFC5C3 /* Art.scnassets in Resources */,
 				86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */,
 			);
@@ -434,11 +547,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				864C878E2A554D9900EFC5C3 /* GameViewController.swift in Sources */,
+				86C40C102A7545930040189E /* BulletsHolder.swift in Sources */,
+				86C40BF32A75438E0040189E /* AudioUtil.swift in Sources */,
+				864C878E2A554D9900EFC5C3 /* BluetoothTestViewController.swift in Sources */,
+				86C40BEB2A75438E0040189E /* UIViewController+Extension.swift in Sources */,
 				864C87B32A554D9900EFC5C3 /* GameController.swift in Sources */,
+				86C40BE52A75438E0040189E /* WeaponType.swift in Sources */,
+				86C40BEF2A75438E0040189E /* UserDefaults+Extension.swift in Sources */,
 				867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */,
+				86C40C022A7544C60040189E /* GameViewController.swift in Sources */,
+				86C40BF42A75438E0040189E /* CameraAuthUtil.swift in Sources */,
+				86C40C152A7545930040189E /* CurrentWeapon.swift in Sources */,
+				86C40BEA2A75438E0040189E /* UIImageView+Extension.swift in Sources */,
+				86C40BED2A75438E0040189E /* Storyboard+Extension.swift in Sources */,
+				86C40C132A7545930040189E /* MotionDetector.swift in Sources */,
+				86C40C112A7545930040189E /* GameSceneManager.swift in Sources */,
+				86C40BF72A75438E0040189E /* SceneNodeUtil.swift in Sources */,
+				86C40BE72A75438E0040189E /* SoundConst.swift in Sources */,
 				864C878C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */,
+				86C40BEC2A75438E0040189E /* UIViewController+RxLifeCycleEvents.swift in Sources */,
+				86C40C002A75438E0040189E /* GameViewModel.swift in Sources */,
+				86C40BF02A75438E0040189E /* UIScrollView+Extension.swift in Sources */,
 				86C40BC02A7540070040189E /* TopViewController.swift in Sources */,
+				86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */,
+				86C40BEE2A75438E0040189E /* Font+Extension.swift in Sources */,
+				86C40BE42A75438E0040189E /* GameConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
