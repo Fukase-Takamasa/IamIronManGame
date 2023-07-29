@@ -9,6 +9,9 @@ target 'IamIronManGame iOS' do
 
   pod 'BeerKit'
   pod 'GVRSDK'
+  pod "GTProgressBar"
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end
 
