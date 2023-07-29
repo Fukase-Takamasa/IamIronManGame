@@ -16,24 +16,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="s2A-pt-IWV">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfG-bO-AcQ">
+                                <rect key="frame" x="233.5" y="215" width="200" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="BtP-nf-iF9"/>
+                                    <constraint firstAttribute="height" constant="60" id="h4e-Kc-UZC"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="didTapButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="7Fp-3c-3jF"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="117" translatesAutoresizingMaskIntoConstraints="NO" id="v5C-pC-zab">
+                                <rect key="frame" x="244" y="115" width="179" height="60"/>
                                 <subviews>
-                                    <arscnView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8t-sm-1ee">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="375"/>
-                                    </arscnView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CJ-VQ-Uao">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-Ts-g4j">
+                                        <rect key="frame" x="148" y="0.0" width="31" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvJ-7c-dHD">
+                                <rect key="frame" x="296" y="301" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="showBrowserWithSender:" destination="BV1-FR-VrT" eventType="touchUpInside" id="0DG-y7-8LR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="07K-He-RGp"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="s2A-pt-IWV" firstAttribute="top" secondItem="07K-He-RGp" secondAttribute="top" id="BKt-bm-awA"/>
-                            <constraint firstItem="07K-He-RGp" firstAttribute="bottom" secondItem="s2A-pt-IWV" secondAttribute="bottom" id="CE2-XU-CC3"/>
-                            <constraint firstItem="s2A-pt-IWV" firstAttribute="leading" secondItem="07K-He-RGp" secondAttribute="leading" id="SIx-Km-EWx"/>
-                            <constraint firstItem="07K-He-RGp" firstAttribute="trailing" secondItem="s2A-pt-IWV" secondAttribute="trailing" id="e3Q-A1-vXv"/>
+                            <constraint firstItem="07K-He-RGp" firstAttribute="bottom" secondItem="xfG-bO-AcQ" secondAttribute="bottom" constant="100" id="Aic-xP-ihW"/>
+                            <constraint firstItem="ZvJ-7c-dHD" firstAttribute="centerX" secondItem="xfG-bO-AcQ" secondAttribute="centerX" id="FTc-e2-QDI"/>
+                            <constraint firstItem="xfG-bO-AcQ" firstAttribute="top" secondItem="v5C-pC-zab" secondAttribute="bottom" constant="40" id="RKT-dU-wx9"/>
+                            <constraint firstItem="ZvJ-7c-dHD" firstAttribute="top" secondItem="xfG-bO-AcQ" secondAttribute="bottom" constant="26" id="jBy-iE-i5H"/>
+                            <constraint firstItem="v5C-pC-zab" firstAttribute="centerX" secondItem="T0i-TN-Jze" secondAttribute="centerX" id="rke-RK-b9H"/>
+                            <constraint firstItem="xfG-bO-AcQ" firstAttribute="centerX" secondItem="T0i-TN-Jze" secondAttribute="centerX" id="uSw-uG-Frc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="player1Label" destination="0CJ-VQ-Uao" id="Mkc-ew-Low"/>
+                        <outlet property="player2Label" destination="Xag-Ts-g4j" id="XsS-Wl-lhV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

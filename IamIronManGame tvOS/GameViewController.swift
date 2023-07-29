@@ -14,6 +14,9 @@ class GameViewController: UIViewController {
         return self.view as! SCNView
     }
     
+    @IBOutlet weak var labelB: UILabel!
+    @IBOutlet weak var labelA: UILabel!
+    @IBOutlet weak var labelA: UILabel!
     var gameController: GameController!
     
     override func viewDidLoad() {

@@ -58,6 +58,7 @@
 		864C87AD2A554D9900EFC5C3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		864C87B02A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		864C87B22A554D9900EFC5C3 /* IamIronManGame_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IamIronManGame_macOS.entitlements; sourceTree = "<group>"; };
+		86596F0E2A74FE2C00B7B8DC /* IamIronManGame-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IamIronManGame-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewSettingUtil.swift; sourceTree = "<group>"; };
 		A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame tvOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame tvOS/Pods-IamIronManGame tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +139,7 @@
 		864C878A2A554D9900EFC5C3 /* IamIronManGame iOS */ = {
 			isa = PBXGroup;
 			children = (
+				86596F0E2A74FE2C00B7B8DC /* IamIronManGame-iOS-Info.plist */,
 				867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */,
 				864C878B2A554D9900EFC5C3 /* AppDelegate.swift */,
 				864C878D2A554D9900EFC5C3 /* GameViewController.swift */,
@@ -179,7 +181,6 @@
 				13FB61EBD33E9476D193E836 /* Pods-IamIronManGame tvOS.debug.xcconfig */,
 				A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -621,7 +622,9 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 37MFDT4LMQ;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IamIronManGame-iOS-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "近くの端末とBluetooth接続を通じてデータをやり取りする為に使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -658,7 +661,9 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 37MFDT4LMQ;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IamIronManGame-iOS-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "近くの端末とBluetooth接続を通じてデータをやり取りする為に使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
