@@ -53,6 +53,58 @@
 		86C40C132A7545930040189E /* MotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C0B2A7545930040189E /* MotionDetector.swift */; };
 		86C40C152A7545930040189E /* CurrentWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C0D2A7545930040189E /* CurrentWeapon.swift */; };
 		86C40C182A7547930040189E /* GameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C172A7547930040189E /* GameViewController.storyboard */; };
+		86C40C2B2A754BB00040189E /* startWhistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C1B2A754BB00040189E /* startWhistle.mp3 */; };
+		86C40C2C2A754BB00040189E /* pistol-out-bullets.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C1C2A754BB00040189E /* pistol-out-bullets.mp3 */; };
+		86C40C2D2A754BB00040189E /* pistol-slide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C1D2A754BB00040189E /* pistol-slide.mp3 */; };
+		86C40C2E2A754BB00040189E /* westernPistolShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C1E2A754BB00040189E /* westernPistolShoot.mp3 */; };
+		86C40C2F2A754BB00040189E /* bazookaHit_small2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C1F2A754BB00040189E /* bazookaHit_small2.mp3 */; };
+		86C40C302A754BB00040189E /* bazookaHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C202A754BB00040189E /* bazookaHit.mp3 */; };
+		86C40C312A754BB00040189E /* bazookaSet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C212A754BB00040189E /* bazookaSet.mp3 */; };
+		86C40C322A754BB00040189E /* bazookaShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C222A754BB00040189E /* bazookaShoot.mp3 */; };
+		86C40C342A754BB00040189E /* endWhistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C242A754BB00040189E /* endWhistle.mp3 */; };
+		86C40C352A754BB00040189E /* rankingAppear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C252A754BB00040189E /* rankingAppear.mp3 */; };
+		86C40C362A754BB00040189E /* pistol-fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C262A754BB00040189E /* pistol-fire.mp3 */; };
+		86C40C372A754BB00040189E /* headShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C272A754BB00040189E /* headShot.mp3 */; };
+		86C40C382A754BB00040189E /* pistol-reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C282A754BB00040189E /* pistol-reload.mp3 */; };
+		86C40C392A754BB10040189E /* bazookaReload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C292A754BB00040189E /* bazookaReload.mp3 */; };
+		86C40C5C2A754C300040189E /* fonfon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C3B2A754C2E0040189E /* fonfon.mp3 */; };
+		86C40C5D2A754C300040189E /* bossBattle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C3C2A754C2E0040189E /* bossBattle.mp3 */; };
+		86C40C5E2A754C300040189E /* taa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C3D2A754C2E0040189E /* taa.mp3 */; };
+		86C40C5F2A754C300040189E /* kakugo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C3E2A754C2E0040189E /* kakugo.mp3 */; };
+		86C40C602A754C300040189E /* reikiyo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C3F2A754C2E0040189E /* reikiyo.mp3 */; };
+		86C40C612A754C300040189E /* pikagoro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C402A754C2E0040189E /* pikagoro.mp3 */; };
+		86C40C622A754C300040189E /* kuo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C412A754C2E0040189E /* kuo.mp3 */; };
+		86C40C632A754C300040189E /* beam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C422A754C2E0040189E /* beam.mp3 */; };
+		86C40C642A754C300040189E /* dora.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C432A754C2E0040189E /* dora.mp3 */; };
+		86C40C652A754C300040189E /* pesin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C442A754C2E0040189E /* pesin.mp3 */; };
+		86C40C662A754C300040189E /* karadaga.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C452A754C2E0040189E /* karadaga.mp3 */; };
+		86C40C672A754C300040189E /* hyun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C462A754C2E0040189E /* hyun.mp3 */; };
+		86C40C682A754C300040189E /* soko.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C472A754C2E0040189E /* soko.mp3 */; };
+		86C40C692A754C300040189E /* serifu1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C482A754C2E0040189E /* serifu1.mp3 */; };
+		86C40C6A2A754C300040189E /* kyuiin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C492A754C2E0040189E /* kyuiin.mp3 */; };
+		86C40C6B2A754C300040189E /* ending.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C4A2A754C2E0040189E /* ending.mp3 */; };
+		86C40C6C2A754C300040189E /* besi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C4B2A754C2F0040189E /* besi.mp3 */; };
+		86C40C6D2A754C300040189E /* aquaDamage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C4C2A754C2F0040189E /* aquaDamage.mp3 */; };
+		86C40C6E2A754C300040189E /* omoi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C4D2A754C2F0040189E /* omoi.mp3 */; };
+		86C40C6F2A754C300040189E /* uwaaa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C4E2A754C2F0040189E /* uwaaa.mp3 */; };
+		86C40C702A754C300040189E /* honooyo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C4F2A754C2F0040189E /* honooyo.mp3 */; };
+		86C40C712A754C300040189E /* poko.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C502A754C2F0040189E /* poko.mp3 */; };
+		86C40C722A754C300040189E /* aquaPointBarFilled.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C512A754C2F0040189E /* aquaPointBarFilled.mp3 */; };
+		86C40C732A754C300040189E /* bossBattleTrim_2-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C522A754C2F0040189E /* bossBattleTrim_2-1.mp3 */; };
+		86C40C742A754C300040189E /* uu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C532A754C2F0040189E /* uu.mp3 */; };
+		86C40C752A754C300040189E /* guaaa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C542A754C2F0040189E /* guaaa.mp3 */; };
+		86C40C762A754C300040189E /* ikazutiyo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C552A754C2F0040189E /* ikazutiyo.mp3 */; };
+		86C40C772A754C300040189E /* aquaMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C562A754C2F0040189E /* aquaMove.mp3 */; };
+		86C40C782A754C300040189E /* bossBattleTrim_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C572A754C300040189E /* bossBattleTrim_2.mp3 */; };
+		86C40C792A754C300040189E /* K.O..mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C582A754C300040189E /* K.O..mp3 */; };
+		86C40C7A2A754C300040189E /* asai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C592A754C300040189E /* asai.mp3 */; };
+		86C40C7B2A754C300040189E /* yoro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C5A2A754C300040189E /* yoro.mp3 */; };
+		86C40C7C2A754C300040189E /* kirakiraSelect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C5B2A754C300040189E /* kirakiraSelect.mp3 */; };
+		86C40C812A754CB80040189E /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C7E2A754CB70040189E /* NotificationModel.swift */; };
+		86C40C822A754CB80040189E /* TaimeisanPausingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C7F2A754CB70040189E /* TaimeisanPausingType.swift */; };
+		86C40C832A754CB80040189E /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C802A754CB70040189E /* AudioModel.swift */; };
+		86C40C972A754CF70040189E /* AR_BossBattleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C8C2A754CF60040189E /* AR_BossBattleViewController.storyboard */; };
+		86C40C982A754CF70040189E /* AR_BossBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C8E2A754CF60040189E /* AR_BossBattleViewController.swift */; };
 		CC3364836C96AC8C1C3E25B8 /* Pods_IamIronManGame_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E08F99870AFBCEE4AD3CB03 /* Pods_IamIronManGame_macOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +158,58 @@
 		86C40C0B2A7545930040189E /* MotionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetector.swift; sourceTree = "<group>"; };
 		86C40C0D2A7545930040189E /* CurrentWeapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeapon.swift; sourceTree = "<group>"; };
 		86C40C172A7547930040189E /* GameViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameViewController.storyboard; sourceTree = "<group>"; };
+		86C40C1B2A754BB00040189E /* startWhistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startWhistle.mp3; sourceTree = "<group>"; };
+		86C40C1C2A754BB00040189E /* pistol-out-bullets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-out-bullets.mp3"; sourceTree = "<group>"; };
+		86C40C1D2A754BB00040189E /* pistol-slide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-slide.mp3"; sourceTree = "<group>"; };
+		86C40C1E2A754BB00040189E /* westernPistolShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = westernPistolShoot.mp3; sourceTree = "<group>"; };
+		86C40C1F2A754BB00040189E /* bazookaHit_small2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaHit_small2.mp3; sourceTree = "<group>"; };
+		86C40C202A754BB00040189E /* bazookaHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaHit.mp3; sourceTree = "<group>"; };
+		86C40C212A754BB00040189E /* bazookaSet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaSet.mp3; sourceTree = "<group>"; };
+		86C40C222A754BB00040189E /* bazookaShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaShoot.mp3; sourceTree = "<group>"; };
+		86C40C242A754BB00040189E /* endWhistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endWhistle.mp3; sourceTree = "<group>"; };
+		86C40C252A754BB00040189E /* rankingAppear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rankingAppear.mp3; sourceTree = "<group>"; };
+		86C40C262A754BB00040189E /* pistol-fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-fire.mp3"; sourceTree = "<group>"; };
+		86C40C272A754BB00040189E /* headShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = headShot.mp3; sourceTree = "<group>"; };
+		86C40C282A754BB00040189E /* pistol-reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-reload.mp3"; sourceTree = "<group>"; };
+		86C40C292A754BB00040189E /* bazookaReload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaReload.mp3; sourceTree = "<group>"; };
+		86C40C3B2A754C2E0040189E /* fonfon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fonfon.mp3; sourceTree = "<group>"; };
+		86C40C3C2A754C2E0040189E /* bossBattle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bossBattle.mp3; sourceTree = "<group>"; };
+		86C40C3D2A754C2E0040189E /* taa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = taa.mp3; sourceTree = "<group>"; };
+		86C40C3E2A754C2E0040189E /* kakugo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kakugo.mp3; sourceTree = "<group>"; };
+		86C40C3F2A754C2E0040189E /* reikiyo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reikiyo.mp3; sourceTree = "<group>"; };
+		86C40C402A754C2E0040189E /* pikagoro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pikagoro.mp3; sourceTree = "<group>"; };
+		86C40C412A754C2E0040189E /* kuo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kuo.mp3; sourceTree = "<group>"; };
+		86C40C422A754C2E0040189E /* beam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beam.mp3; sourceTree = "<group>"; };
+		86C40C432A754C2E0040189E /* dora.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dora.mp3; sourceTree = "<group>"; };
+		86C40C442A754C2E0040189E /* pesin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pesin.mp3; sourceTree = "<group>"; };
+		86C40C452A754C2E0040189E /* karadaga.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = karadaga.mp3; sourceTree = "<group>"; };
+		86C40C462A754C2E0040189E /* hyun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hyun.mp3; sourceTree = "<group>"; };
+		86C40C472A754C2E0040189E /* soko.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soko.mp3; sourceTree = "<group>"; };
+		86C40C482A754C2E0040189E /* serifu1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = serifu1.mp3; sourceTree = "<group>"; };
+		86C40C492A754C2E0040189E /* kyuiin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = kyuiin.mp3; path = ../../../../AquaVSTaimei/AquaVSTaimei/Resources/MP3/kyuiin.mp3; sourceTree = "<group>"; };
+		86C40C4A2A754C2E0040189E /* ending.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ending.mp3; sourceTree = "<group>"; };
+		86C40C4B2A754C2F0040189E /* besi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = besi.mp3; sourceTree = "<group>"; };
+		86C40C4C2A754C2F0040189E /* aquaDamage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aquaDamage.mp3; sourceTree = "<group>"; };
+		86C40C4D2A754C2F0040189E /* omoi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = omoi.mp3; sourceTree = "<group>"; };
+		86C40C4E2A754C2F0040189E /* uwaaa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = uwaaa.mp3; sourceTree = "<group>"; };
+		86C40C4F2A754C2F0040189E /* honooyo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = honooyo.mp3; sourceTree = "<group>"; };
+		86C40C502A754C2F0040189E /* poko.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = poko.mp3; sourceTree = "<group>"; };
+		86C40C512A754C2F0040189E /* aquaPointBarFilled.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aquaPointBarFilled.mp3; sourceTree = "<group>"; };
+		86C40C522A754C2F0040189E /* bossBattleTrim_2-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bossBattleTrim_2-1.mp3"; sourceTree = "<group>"; };
+		86C40C532A754C2F0040189E /* uu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = uu.mp3; sourceTree = "<group>"; };
+		86C40C542A754C2F0040189E /* guaaa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = guaaa.mp3; sourceTree = "<group>"; };
+		86C40C552A754C2F0040189E /* ikazutiyo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ikazutiyo.mp3; sourceTree = "<group>"; };
+		86C40C562A754C2F0040189E /* aquaMove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aquaMove.mp3; sourceTree = "<group>"; };
+		86C40C572A754C300040189E /* bossBattleTrim_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bossBattleTrim_2.mp3; sourceTree = "<group>"; };
+		86C40C582A754C300040189E /* K.O..mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = K.O..mp3; sourceTree = "<group>"; };
+		86C40C592A754C300040189E /* asai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = asai.mp3; sourceTree = "<group>"; };
+		86C40C5A2A754C300040189E /* yoro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yoro.mp3; sourceTree = "<group>"; };
+		86C40C5B2A754C300040189E /* kirakiraSelect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kirakiraSelect.mp3; sourceTree = "<group>"; };
+		86C40C7E2A754CB70040189E /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		86C40C7F2A754CB70040189E /* TaimeisanPausingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaimeisanPausingType.swift; sourceTree = "<group>"; };
+		86C40C802A754CB70040189E /* AudioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
+		86C40C8D2A754CF60040189E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AR_BossBattleViewController.storyboard; sourceTree = "<group>"; };
+		86C40C8E2A754CF60040189E /* AR_BossBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AR_BossBattleViewController.swift; sourceTree = "<group>"; };
 		A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame tvOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame tvOS/Pods-IamIronManGame tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				864C87812A554D9800EFC5C3 /* GameController.swift */,
+				86C40C192A754BB00040189E /* Resources */,
 				864C87822A554D9800EFC5C3 /* Art.scnassets */,
 				864C87832A554D9900EFC5C3 /* Assets.xcassets */,
 			);
@@ -191,6 +296,7 @@
 				86C40BCA2A75438E0040189E /* Extension */,
 				86C40BD22A75438E0040189E /* Utility */,
 				86C40C052A7545930040189E /* Manager */,
+				86C40C7D2A754CB70040189E /* Model */,
 				86C40BDB2A75438E0040189E /* ViewModel */,
 				864C878D2A554D9900EFC5C3 /* BluetoothTestViewController.swift */,
 				864C878F2A554D9900EFC5C3 /* Main.storyboard */,
@@ -198,6 +304,7 @@
 				86C40C172A7547930040189E /* GameViewController.storyboard */,
 				86C40BBF2A7540070040189E /* TopViewController.swift */,
 				86C40BC12A7540130040189E /* TopViewController.storyboard */,
+				86C40C8B2A754CF60040189E /* BossBattle */,
 				864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */,
 			);
 			path = "IamIronManGame iOS";
@@ -287,6 +394,87 @@
 				86C40C0D2A7545930040189E /* CurrentWeapon.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		86C40C192A754BB00040189E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				86C40C1A2A754BB00040189E /* mp3 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		86C40C1A2A754BB00040189E /* mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				86C40C1B2A754BB00040189E /* startWhistle.mp3 */,
+				86C40C1C2A754BB00040189E /* pistol-out-bullets.mp3 */,
+				86C40C1D2A754BB00040189E /* pistol-slide.mp3 */,
+				86C40C1E2A754BB00040189E /* westernPistolShoot.mp3 */,
+				86C40C1F2A754BB00040189E /* bazookaHit_small2.mp3 */,
+				86C40C202A754BB00040189E /* bazookaHit.mp3 */,
+				86C40C212A754BB00040189E /* bazookaSet.mp3 */,
+				86C40C222A754BB00040189E /* bazookaShoot.mp3 */,
+				86C40C242A754BB00040189E /* endWhistle.mp3 */,
+				86C40C252A754BB00040189E /* rankingAppear.mp3 */,
+				86C40C262A754BB00040189E /* pistol-fire.mp3 */,
+				86C40C272A754BB00040189E /* headShot.mp3 */,
+				86C40C282A754BB00040189E /* pistol-reload.mp3 */,
+				86C40C292A754BB00040189E /* bazookaReload.mp3 */,
+				86C40C4C2A754C2F0040189E /* aquaDamage.mp3 */,
+				86C40C562A754C2F0040189E /* aquaMove.mp3 */,
+				86C40C512A754C2F0040189E /* aquaPointBarFilled.mp3 */,
+				86C40C592A754C300040189E /* asai.mp3 */,
+				86C40C422A754C2E0040189E /* beam.mp3 */,
+				86C40C4B2A754C2F0040189E /* besi.mp3 */,
+				86C40C3C2A754C2E0040189E /* bossBattle.mp3 */,
+				86C40C522A754C2F0040189E /* bossBattleTrim_2-1.mp3 */,
+				86C40C572A754C300040189E /* bossBattleTrim_2.mp3 */,
+				86C40C432A754C2E0040189E /* dora.mp3 */,
+				86C40C4A2A754C2E0040189E /* ending.mp3 */,
+				86C40C3B2A754C2E0040189E /* fonfon.mp3 */,
+				86C40C542A754C2F0040189E /* guaaa.mp3 */,
+				86C40C4F2A754C2F0040189E /* honooyo.mp3 */,
+				86C40C462A754C2E0040189E /* hyun.mp3 */,
+				86C40C552A754C2F0040189E /* ikazutiyo.mp3 */,
+				86C40C582A754C300040189E /* K.O..mp3 */,
+				86C40C3E2A754C2E0040189E /* kakugo.mp3 */,
+				86C40C452A754C2E0040189E /* karadaga.mp3 */,
+				86C40C5B2A754C300040189E /* kirakiraSelect.mp3 */,
+				86C40C412A754C2E0040189E /* kuo.mp3 */,
+				86C40C492A754C2E0040189E /* kyuiin.mp3 */,
+				86C40C4D2A754C2F0040189E /* omoi.mp3 */,
+				86C40C442A754C2E0040189E /* pesin.mp3 */,
+				86C40C402A754C2E0040189E /* pikagoro.mp3 */,
+				86C40C502A754C2F0040189E /* poko.mp3 */,
+				86C40C3F2A754C2E0040189E /* reikiyo.mp3 */,
+				86C40C482A754C2E0040189E /* serifu1.mp3 */,
+				86C40C472A754C2E0040189E /* soko.mp3 */,
+				86C40C3D2A754C2E0040189E /* taa.mp3 */,
+				86C40C532A754C2F0040189E /* uu.mp3 */,
+				86C40C4E2A754C2F0040189E /* uwaaa.mp3 */,
+				86C40C5A2A754C300040189E /* yoro.mp3 */,
+			);
+			path = mp3;
+			sourceTree = "<group>";
+		};
+		86C40C7D2A754CB70040189E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86C40C7E2A754CB70040189E /* NotificationModel.swift */,
+				86C40C7F2A754CB70040189E /* TaimeisanPausingType.swift */,
+				86C40C802A754CB70040189E /* AudioModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		86C40C8B2A754CF60040189E /* BossBattle */ = {
+			isa = PBXGroup;
+			children = (
+				86C40C8E2A754CF60040189E /* AR_BossBattleViewController.swift */,
+				86C40C8C2A754CF60040189E /* AR_BossBattleViewController.storyboard */,
+			);
+			path = BossBattle;
 			sourceTree = "<group>";
 		};
 		B066C199BA4BA670D0FCDC28 /* Pods */ = {
@@ -407,10 +595,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C40C302A754BB00040189E /* bazookaHit.mp3 in Resources */,
+				86C40C2B2A754BB00040189E /* startWhistle.mp3 in Resources */,
+				86C40C382A754BB00040189E /* pistol-reload.mp3 in Resources */,
+				86C40C792A754C300040189E /* K.O..mp3 in Resources */,
+				86C40C7A2A754C300040189E /* asai.mp3 in Resources */,
+				86C40C5E2A754C300040189E /* taa.mp3 in Resources */,
+				86C40C5D2A754C300040189E /* bossBattle.mp3 in Resources */,
+				86C40C6B2A754C300040189E /* ending.mp3 in Resources */,
 				864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */,
+				86C40C342A754BB00040189E /* endWhistle.mp3 in Resources */,
+				86C40C612A754C300040189E /* pikagoro.mp3 in Resources */,
+				86C40C2E2A754BB00040189E /* westernPistolShoot.mp3 in Resources */,
+				86C40C972A754CF70040189E /* AR_BossBattleViewController.storyboard in Resources */,
+				86C40C712A754C300040189E /* poko.mp3 in Resources */,
+				86C40C2D2A754BB00040189E /* pistol-slide.mp3 in Resources */,
+				86C40C782A754C300040189E /* bossBattleTrim_2.mp3 in Resources */,
+				86C40C652A754C300040189E /* pesin.mp3 in Resources */,
+				86C40C752A754C300040189E /* guaaa.mp3 in Resources */,
 				864C87942A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */,
+				86C40C692A754C300040189E /* serifu1.mp3 in Resources */,
+				86C40C352A754BB00040189E /* rankingAppear.mp3 in Resources */,
+				86C40C2F2A754BB00040189E /* bazookaHit_small2.mp3 in Resources */,
 				864C87B92A554D9900EFC5C3 /* Assets.xcassets in Resources */,
+				86C40C7C2A754C300040189E /* kirakiraSelect.mp3 in Resources */,
+				86C40C6C2A754C300040189E /* besi.mp3 in Resources */,
+				86C40C772A754C300040189E /* aquaMove.mp3 in Resources */,
+				86C40C632A754C300040189E /* beam.mp3 in Resources */,
+				86C40C312A754BB00040189E /* bazookaSet.mp3 in Resources */,
+				86C40C742A754C300040189E /* uu.mp3 in Resources */,
+				86C40C602A754C300040189E /* reikiyo.mp3 in Resources */,
+				86C40C722A754C300040189E /* aquaPointBarFilled.mp3 in Resources */,
+				86C40C2C2A754BB00040189E /* pistol-out-bullets.mp3 in Resources */,
+				86C40C682A754C300040189E /* soko.mp3 in Resources */,
+				86C40C702A754C300040189E /* honooyo.mp3 in Resources */,
+				86C40C362A754BB00040189E /* pistol-fire.mp3 in Resources */,
+				86C40C5F2A754C300040189E /* kakugo.mp3 in Resources */,
+				86C40C6E2A754C300040189E /* omoi.mp3 in Resources */,
+				86C40C662A754C300040189E /* karadaga.mp3 in Resources */,
+				86C40C322A754BB00040189E /* bazookaShoot.mp3 in Resources */,
+				86C40C5C2A754C300040189E /* fonfon.mp3 in Resources */,
+				86C40C392A754BB10040189E /* bazookaReload.mp3 in Resources */,
+				86C40C762A754C300040189E /* ikazutiyo.mp3 in Resources */,
 				86C40C182A7547930040189E /* GameViewController.storyboard in Resources */,
+				86C40C7B2A754C300040189E /* yoro.mp3 in Resources */,
+				86C40C6D2A754C300040189E /* aquaDamage.mp3 in Resources */,
+				86C40C6F2A754C300040189E /* uwaaa.mp3 in Resources */,
+				86C40C6A2A754C300040189E /* kyuiin.mp3 in Resources */,
+				86C40C622A754C300040189E /* kuo.mp3 in Resources */,
+				86C40C642A754C300040189E /* dora.mp3 in Resources */,
+				86C40C672A754C300040189E /* hyun.mp3 in Resources */,
+				86C40C372A754BB00040189E /* headShot.mp3 in Resources */,
+				86C40C732A754C300040189E /* bossBattleTrim_2-1.mp3 in Resources */,
 				864C87B62A554D9900EFC5C3 /* Art.scnassets in Resources */,
 				86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */,
 			);
@@ -547,6 +783,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C40C982A754CF70040189E /* AR_BossBattleViewController.swift in Sources */,
 				86C40C102A7545930040189E /* BulletsHolder.swift in Sources */,
 				86C40BF32A75438E0040189E /* AudioUtil.swift in Sources */,
 				864C878E2A554D9900EFC5C3 /* BluetoothTestViewController.swift in Sources */,
@@ -561,6 +798,7 @@
 				86C40BEA2A75438E0040189E /* UIImageView+Extension.swift in Sources */,
 				86C40BED2A75438E0040189E /* Storyboard+Extension.swift in Sources */,
 				86C40C132A7545930040189E /* MotionDetector.swift in Sources */,
+				86C40C832A754CB80040189E /* AudioModel.swift in Sources */,
 				86C40C112A7545930040189E /* GameSceneManager.swift in Sources */,
 				86C40BF72A75438E0040189E /* SceneNodeUtil.swift in Sources */,
 				86C40BE72A75438E0040189E /* SoundConst.swift in Sources */,
@@ -569,7 +807,9 @@
 				86C40C002A75438E0040189E /* GameViewModel.swift in Sources */,
 				86C40BF02A75438E0040189E /* UIScrollView+Extension.swift in Sources */,
 				86C40BC02A7540070040189E /* TopViewController.swift in Sources */,
+				86C40C812A754CB80040189E /* NotificationModel.swift in Sources */,
 				86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */,
+				86C40C822A754CB80040189E /* TaimeisanPausingType.swift in Sources */,
 				86C40BEE2A75438E0040189E /* Font+Extension.swift in Sources */,
 				86C40BE42A75438E0040189E /* GameConst.swift in Sources */,
 			);
@@ -636,6 +876,14 @@
 				864C87B02A554D9900EFC5C3 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		86C40C8C2A754CF60040189E /* AR_BossBattleViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86C40C8D2A754CF60040189E /* Base */,
+			);
+			name = AR_BossBattleViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -784,6 +1032,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "IamIronManGame-development";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -823,6 +1072,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "IamIronManGame-development";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
