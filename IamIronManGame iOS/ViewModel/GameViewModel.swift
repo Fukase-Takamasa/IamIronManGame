@@ -7,6 +7,8 @@
 
 import RxSwift
 import RxCocoa
+import BeerKit
+import PKHUD
 
 class GameViewModel {
     let bulletsCountImage: Observable<UIImage?>
@@ -33,17 +35,33 @@ class GameViewModel {
         
         dependency.motionDetector.firingMotionDetected
             .subscribe(onNext: { _ in
-                dependency.currentWeapon.fire()
+                if DeviceTypeHolder.shared.type == .remoCon {
+                    BeerKit.sendEvent("fireWeapon")
+                }
             }).disposed(by: disposeBag)
         
         dependency.motionDetector.reloadingMotionDetected
             .subscribe(onNext: { _ in
-                dependency.currentWeapon.reload()
+                if DeviceTypeHolder.shared.type == .remoCon {
+                    BeerKit.sendEvent("reloadWeapon")
+                }
             }).disposed(by: disposeBag)
 
         input.targetHit
             .subscribe(onNext: { _ in
                 AudioUtil.playSound(of: dependency.currentWeapon.weaponType.hitSound)
             }).disposed(by: disposeBag)
+        
+        BeerKit.onEvent("fireWeapon") { (peerId, data) in
+            if DeviceTypeHolder.shared.type == .main {
+                dependency.currentWeapon.fire()
+            }
+        }
+        
+        BeerKit.onEvent("reloadWeapon") { (peerId, data) in
+            if DeviceTypeHolder.shared.type == .main {
+                dependency.currentWeapon.reload()
+            }
+        }
     }
 }

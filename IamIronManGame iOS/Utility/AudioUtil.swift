@@ -18,7 +18,9 @@ class AudioUtil {
         
         switch sound {
         case .pistolShoot, .bazookaShoot:
-            vibration()
+            if DeviceTypeHolder.shared.type == .remoCon {
+                vibration()
+            }
         default:
             break
         }

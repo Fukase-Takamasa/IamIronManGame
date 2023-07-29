@@ -105,6 +105,8 @@
 		86C40C832A754CB80040189E /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C802A754CB70040189E /* AudioModel.swift */; };
 		86C40C972A754CF70040189E /* AR_BossBattleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40C8C2A754CF60040189E /* AR_BossBattleViewController.storyboard */; };
 		86C40C982A754CF70040189E /* AR_BossBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C8E2A754CF60040189E /* AR_BossBattleViewController.swift */; };
+		86C40C9D2A755BFD0040189E /* DeviceTypeHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40C9C2A755BFD0040189E /* DeviceTypeHolder.swift */; };
+		86C40CA02A7561D70040189E /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 86C40C9F2A7561D70040189E /* PKHUD */; };
 		CC3364836C96AC8C1C3E25B8 /* Pods_IamIronManGame_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E08F99870AFBCEE4AD3CB03 /* Pods_IamIronManGame_macOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +212,7 @@
 		86C40C802A754CB70040189E /* AudioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
 		86C40C8D2A754CF60040189E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AR_BossBattleViewController.storyboard; sourceTree = "<group>"; };
 		86C40C8E2A754CF60040189E /* AR_BossBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AR_BossBattleViewController.swift; sourceTree = "<group>"; };
+		86C40C9C2A755BFD0040189E /* DeviceTypeHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeHolder.swift; sourceTree = "<group>"; };
 		A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame tvOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame tvOS/Pods-IamIronManGame tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01DCC99E78BC6FF6B1AECB9A /* Pods_IamIronManGame_iOS.framework in Frameworks */,
+				86C40CA02A7561D70040189E /* PKHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +383,7 @@
 		86C40C052A7545930040189E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				86C40C9C2A755BFD0040189E /* DeviceTypeHolder.swift */,
 				86C40C062A7545930040189E /* Game */,
 			);
 			name = Manager;
@@ -509,6 +514,9 @@
 			dependencies = (
 			);
 			name = "IamIronManGame iOS";
+			packageProductDependencies = (
+				86C40C9F2A7561D70040189E /* PKHUD */,
+			);
 			productName = "IamIronManGame iOS";
 			productReference = 864C87882A554D9900EFC5C3 /* IamIronManGame.app */;
 			productType = "com.apple.product-type.application";
@@ -579,6 +587,9 @@
 				Base,
 			);
 			mainGroup = 864C877B2A554D9700EFC5C3;
+			packageReferences = (
+				86C40C9E2A7561D70040189E /* XCRemoteSwiftPackageReference "PKHUD" */,
+			);
 			productRefGroup = 864C87892A554D9900EFC5C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -810,6 +821,7 @@
 				86C40C812A754CB80040189E /* NotificationModel.swift in Sources */,
 				86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */,
 				86C40C822A754CB80040189E /* TaimeisanPausingType.swift in Sources */,
+				86C40C9D2A755BFD0040189E /* DeviceTypeHolder.swift in Sources */,
 				86C40BEE2A75438E0040189E /* Font+Extension.swift in Sources */,
 				86C40BE42A75438E0040189E /* GameConst.swift in Sources */,
 			);
@@ -1020,7 +1032,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1060,7 +1072,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1236,6 +1248,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86C40C9E2A7561D70040189E /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86C40C9F2A7561D70040189E /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C40C9E2A7561D70040189E /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 864C877C2A554D9700EFC5C3 /* Project object */;
 }
