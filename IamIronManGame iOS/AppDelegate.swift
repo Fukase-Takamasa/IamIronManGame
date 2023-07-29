@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         BeerKit.transceive(serviceType: "IamIronManGame")
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "TopViewController", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! TopViewController
+        self.window?.rootViewController = vc
+        
         return true
     }
 
