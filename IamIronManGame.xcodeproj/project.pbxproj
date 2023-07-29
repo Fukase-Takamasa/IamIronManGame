@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01DCC99E78BC6FF6B1AECB9A /* Pods_IamIronManGame_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */; };
+		1DAD4E188CF92E0B7A541C06 /* Pods_IamIronManGame_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */; };
 		864C878C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878B2A554D9900EFC5C3 /* AppDelegate.swift */; };
 		864C878E2A554D9900EFC5C3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C878D2A554D9900EFC5C3 /* GameViewController.swift */; };
 		864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864C878F2A554D9900EFC5C3 /* Main.storyboard */; };
@@ -27,9 +29,17 @@
 		864C87B92A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
 		864C87BA2A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
 		864C87BB2A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
+		867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */; };
+		CC3364836C96AC8C1C3E25B8 /* Pods_IamIronManGame_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E08F99870AFBCEE4AD3CB03 /* Pods_IamIronManGame_macOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13FB61EBD33E9476D193E836 /* Pods-IamIronManGame tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame tvOS.debug.xcconfig"; path = "Target Support Files/Pods-IamIronManGame tvOS/Pods-IamIronManGame tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1C4458598EAE39BDE0A812FE /* Pods-IamIronManGame macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame macOS.debug.xcconfig"; path = "Target Support Files/Pods-IamIronManGame macOS/Pods-IamIronManGame macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		3B7AF134D8A4ECC50937B133 /* Pods-IamIronManGame iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame iOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS.release.xcconfig"; sourceTree = "<group>"; };
+		3EA7D2788C4C9E0686A0A273 /* Pods-IamIronManGame macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame macOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame macOS/Pods-IamIronManGame macOS.release.xcconfig"; sourceTree = "<group>"; };
+		46F961959A6D5B499B2E7848 /* Pods-IamIronManGame iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame iOS.debug.xcconfig"; path = "Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4E08F99870AFBCEE4AD3CB03 /* Pods_IamIronManGame_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C87812A554D9800EFC5C3 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		864C87822A554D9800EFC5C3 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		864C87832A554D9900EFC5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +58,10 @@
 		864C87AD2A554D9900EFC5C3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		864C87B02A554D9900EFC5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		864C87B22A554D9900EFC5C3 /* IamIronManGame_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IamIronManGame_macOS.entitlements; sourceTree = "<group>"; };
+		867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewSettingUtil.swift; sourceTree = "<group>"; };
+		A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IamIronManGame tvOS.release.xcconfig"; path = "Target Support Files/Pods-IamIronManGame tvOS/Pods-IamIronManGame tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IamIronManGame_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DCC99E78BC6FF6B1AECB9A /* Pods_IamIronManGame_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DAD4E188CF92E0B7A541C06 /* Pods_IamIronManGame_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,12 +85,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3364836C96AC8C1C3E25B8 /* Pods_IamIronManGame_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3725EDF1BF2DE7D43008CC6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDF04FFE82D9715487D6192A /* Pods_IamIronManGame_iOS.framework */,
+				4E08F99870AFBCEE4AD3CB03 /* Pods_IamIronManGame_macOS.framework */,
+				ECA93B0CE08F2E99468542E0 /* Pods_IamIronManGame_tvOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		864C877B2A554D9700EFC5C3 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +110,8 @@
 				864C879A2A554D9900EFC5C3 /* IamIronManGame tvOS */,
 				864C87AA2A554D9900EFC5C3 /* IamIronManGame macOS */,
 				864C87892A554D9900EFC5C3 /* Products */,
+				B066C199BA4BA670D0FCDC28 /* Pods */,
+				3725EDF1BF2DE7D43008CC6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +138,7 @@
 		864C878A2A554D9900EFC5C3 /* IamIronManGame iOS */ = {
 			isa = PBXGroup;
 			children = (
+				867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */,
 				864C878B2A554D9900EFC5C3 /* AppDelegate.swift */,
 				864C878D2A554D9900EFC5C3 /* GameViewController.swift */,
 				864C878F2A554D9900EFC5C3 /* Main.storyboard */,
@@ -139,6 +169,20 @@
 			path = "IamIronManGame macOS";
 			sourceTree = "<group>";
 		};
+		B066C199BA4BA670D0FCDC28 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46F961959A6D5B499B2E7848 /* Pods-IamIronManGame iOS.debug.xcconfig */,
+				3B7AF134D8A4ECC50937B133 /* Pods-IamIronManGame iOS.release.xcconfig */,
+				1C4458598EAE39BDE0A812FE /* Pods-IamIronManGame macOS.debug.xcconfig */,
+				3EA7D2788C4C9E0686A0A273 /* Pods-IamIronManGame macOS.release.xcconfig */,
+				13FB61EBD33E9476D193E836 /* Pods-IamIronManGame tvOS.debug.xcconfig */,
+				A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 864C87BE2A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame iOS" */;
 			buildPhases = (
+				035E63B3A814CAEB01A98C71 /* [CP] Check Pods Manifest.lock */,
 				864C87842A554D9900EFC5C3 /* Sources */,
 				864C87852A554D9900EFC5C3 /* Frameworks */,
 				864C87862A554D9900EFC5C3 /* Resources */,
+				88866DFAADAB938DE162F20B /* [CP] Embed Pods Frameworks */,
+				5D31FD08ECF43FAEBEDB0223 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 864C87C12A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame tvOS" */;
 			buildPhases = (
+				9B8B0CCF68B6F18CC5A4C150 /* [CP] Check Pods Manifest.lock */,
 				864C87952A554D9900EFC5C3 /* Sources */,
 				864C87962A554D9900EFC5C3 /* Frameworks */,
 				864C87972A554D9900EFC5C3 /* Resources */,
@@ -180,6 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 864C87C42A554D9900EFC5C3 /* Build configuration list for PBXNativeTarget "IamIronManGame macOS" */;
 			buildPhases = (
+				13CB7F4225D05D745597DF3B /* [CP] Check Pods Manifest.lock */,
 				864C87A52A554D9900EFC5C3 /* Sources */,
 				864C87A62A554D9900EFC5C3 /* Frameworks */,
 				864C87A72A554D9900EFC5C3 /* Resources */,
@@ -269,6 +318,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		035E63B3A814CAEB01A98C71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IamIronManGame iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		13CB7F4225D05D745597DF3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IamIronManGame macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D31FD08ECF43FAEBEDB0223 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88866DFAADAB938DE162F20B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IamIronManGame iOS/Pods-IamIronManGame iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B8B0CCF68B6F18CC5A4C150 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IamIronManGame tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		864C87842A554D9900EFC5C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -276,6 +428,7 @@
 			files = (
 				864C878E2A554D9900EFC5C3 /* GameViewController.swift in Sources */,
 				864C87B32A554D9900EFC5C3 /* GameController.swift in Sources */,
+				867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */,
 				864C878C2A554D9900EFC5C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,27 +610,34 @@
 		};
 		864C87BF2A554D9900EFC5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46F961959A6D5B499B2E7848 /* Pods-IamIronManGame iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 37MFDT4LMQ;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame2;
 				PRODUCT_NAME = IamIronManGame;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "IamIronManGame-development";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -487,27 +647,34 @@
 		};
 		864C87C02A554D9900EFC5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B7AF134D8A4ECC50937B133 /* Pods-IamIronManGame iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RYD4R2QLW8;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 37MFDT4LMQ;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.takamasafukase.IamIronManGame2;
 				PRODUCT_NAME = IamIronManGame;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "IamIronManGame-development";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -518,6 +685,7 @@
 		};
 		864C87C22A554D9900EFC5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13FB61EBD33E9476D193E836 /* Pods-IamIronManGame tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -545,6 +713,7 @@
 		};
 		864C87C32A554D9900EFC5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A81142BF5EF3DB160D7C2E81 /* Pods-IamIronManGame tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -573,6 +742,7 @@
 		};
 		864C87C52A554D9900EFC5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C4458598EAE39BDE0A812FE /* Pods-IamIronManGame macOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -602,6 +772,7 @@
 		};
 		864C87C62A554D9900EFC5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EA7D2788C4C9E0686A0A273 /* Pods-IamIronManGame macOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

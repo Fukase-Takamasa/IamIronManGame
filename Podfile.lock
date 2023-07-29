@@ -1,0 +1,30 @@
+PODS:
+  - BeerKit (1.0.2)
+  - GoogleToolboxForMac/Defines (2.3.2)
+  - GoogleToolboxForMac/Logger (2.3.2):
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - GTMSessionFetcher/Core (1.7.2)
+  - GVRSDK (1.170.0):
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+
+DEPENDENCIES:
+  - BeerKit
+  - GVRSDK
+
+SPEC REPOS:
+  trunk:
+    - BeerKit
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - GVRSDK
+
+SPEC CHECKSUMS:
+  BeerKit: d6d139620f0ba7a558f014758ebea54d27b06be7
+  GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  GVRSDK: 690e9ca3e4d6161b84ff25519447ed2f53e0eb0b
+
+PODFILE CHECKSUM: b349b60b5be1cf00434831ee07c118c9759eb9d9
+
+COCOAPODS: 1.10.1
