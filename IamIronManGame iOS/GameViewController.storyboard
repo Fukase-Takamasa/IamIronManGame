@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,19 +17,203 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fAS-2G-FjW">
-                                <rect key="frame" x="48" y="323" width="210" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqh-9M-mgg">
+                                <rect key="frame" x="0.0" y="0.0" width="448" height="414"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tm4-2T-X4l" userLabel="TaimeisanNameBaseView">
+                                        <rect key="frame" x="20" y="16" width="150" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAIMEI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-w3-ZGt">
+                                                <rect key="frame" x="55" y="30" width="80" height="20"/>
+                                                <fontDescription key="fontDescription" name="Rockwell-BoldItalic" family="Rockwell" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taimeisan_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dQj-SJ-OLp">
+                                                <rect key="frame" x="8" y="2" width="46" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="7hN-Sd-NVh"/>
+                                                    <constraint firstAttribute="width" constant="46" id="uoV-rI-Mcd"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstItem="dQj-SJ-OLp" firstAttribute="top" secondItem="Tm4-2T-X4l" secondAttribute="top" constant="2" id="4ye-Q3-QlQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="HIO-w3-ZGt" secondAttribute="trailing" constant="15" id="C68-jF-b8q"/>
+                                            <constraint firstAttribute="height" constant="50" id="QtO-zh-Fuh"/>
+                                            <constraint firstAttribute="width" constant="150" id="bao-hl-dKU"/>
+                                            <constraint firstAttribute="bottom" secondItem="dQj-SJ-OLp" secondAttribute="bottom" constant="2" id="eRS-Sc-AYe"/>
+                                            <constraint firstAttribute="bottom" secondItem="HIO-w3-ZGt" secondAttribute="bottom" id="fO9-YK-sxt"/>
+                                            <constraint firstItem="dQj-SJ-OLp" firstAttribute="leading" secondItem="Tm4-2T-X4l" secondAttribute="leading" constant="8" id="r0m-Eo-Oy4"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pfe-ce-akv" userLabel="TaimeisanProgress Bar" customClass="GTProgressBar" customModule="GTProgressBar">
+                                        <rect key="frame" x="75" y="16" width="298" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="VEo-Gx-hPM"/>
+                                            <constraint firstAttribute="height" constant="25" id="kMu-ys-k2v"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                                <color key="value" red="0.27714800090000002" green="0.0" blue="0.30483486980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                                <color key="value" red="0.26521330380000002" green="0.02955937753" blue="0.34670498700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                                <color key="value" red="0.87928989960000004" green="0.7812344282" blue="0.86495911989999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barBorderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-2I-RCO" customClass="GTProgressBar" customModule="GTProgressBar">
+                                        <rect key="frame" x="75" y="41" width="273" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="XUB-gb-2cD"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                                <color key="value" red="0.35294117650000001" green="0.64933439240000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                                <color key="value" red="0.35294117650000001" green="0.64933439240000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                                <color key="value" red="0.74316111129999995" green="0.88703411399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barBorderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="directionInt">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMc-id-13X" userLabel="PlayerNameBaseView">
+                                        <rect key="frame" x="264" y="340" width="164" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fukase_thumb_up" translatesAutoresizingMaskIntoConstraints="NO" id="9ub-dI-KiM">
+                                                <rect key="frame" x="114" y="2" width="46" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="46" id="FsC-RT-vBu"/>
+                                                    <constraint firstAttribute="height" constant="46" id="hCP-63-xSv"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ULTRA FUKASE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-A3-Lur">
+                                                <rect key="frame" x="9.5" y="10" width="118.5" height="15"/>
+                                                <fontDescription key="fontDescription" name="Rockwell-BoldItalic" family="Rockwell" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="9ub-dI-KiM" secondAttribute="trailing" constant="4" id="4Z9-ba-CRK"/>
+                                            <constraint firstItem="htF-A3-Lur" firstAttribute="top" secondItem="RMc-id-13X" secondAttribute="top" constant="10" id="Dxg-u1-DkP"/>
+                                            <constraint firstAttribute="height" constant="50" id="Gnj-Bi-VMX"/>
+                                            <constraint firstAttribute="width" constant="164" id="baf-mE-DLk"/>
+                                            <constraint firstItem="9ub-dI-KiM" firstAttribute="top" secondItem="RMc-id-13X" secondAttribute="top" constant="2" id="v6V-DY-euH"/>
+                                            <constraint firstItem="9ub-dI-KiM" firstAttribute="leading" secondItem="htF-A3-Lur" secondAttribute="trailing" constant="-14" id="vOf-u1-Gai"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATU-00-nw8" userLabel="PlayerProgress Bar" customClass="GTProgressBar" customModule="GTProgressBar">
+                                        <rect key="frame" x="64" y="370" width="316" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="lcI-mm-vFV"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                                <color key="value" red="0.35294117650000001" green="0.79607843140000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                                <color key="value" red="0.35294117650000001" green="0.79607843140000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                                <color key="value" red="0.7725490196" green="0.92549019610000005" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barBorderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="directionInt">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fAS-2G-FjW">
+                                        <rect key="frame" x="40" y="316" width="180" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FR8-3o-Jge"/>
+                                            <constraint firstAttribute="width" constant="180" id="pgh-38-QwQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ko_icon" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-1d-HP1">
+                                        <rect key="frame" x="-288" y="0.0" width="1024" height="414"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="FR8-3o-Jge"/>
-                                    <constraint firstAttribute="width" constant="210" id="pgh-38-QwQ"/>
+                                    <constraint firstItem="Tm4-2T-X4l" firstAttribute="top" secondItem="oqh-9M-mgg" secondAttribute="top" constant="16" id="4tC-RA-bRS"/>
+                                    <constraint firstItem="ATU-00-nw8" firstAttribute="leading" secondItem="oqh-9M-mgg" secondAttribute="leading" constant="64" id="9Ze-ZM-7JI"/>
+                                    <constraint firstItem="Tm4-2T-X4l" firstAttribute="leading" secondItem="oqh-9M-mgg" secondAttribute="leading" constant="20" id="9kx-Xu-Auf"/>
+                                    <constraint firstAttribute="trailing" secondItem="WRh-2I-RCO" secondAttribute="trailing" constant="100" id="Hdc-XN-ajj"/>
+                                    <constraint firstItem="fAS-2G-FjW" firstAttribute="leading" secondItem="oqh-9M-mgg" secondAttribute="leading" constant="40" id="MIY-wG-ZTg"/>
+                                    <constraint firstAttribute="bottom" secondItem="fAS-2G-FjW" secondAttribute="bottom" constant="48" id="MQ5-eT-T2E"/>
+                                    <constraint firstAttribute="bottom" secondItem="RMc-id-13X" secondAttribute="bottom" constant="24" id="NmO-2y-WD3"/>
+                                    <constraint firstItem="Pfe-ce-akv" firstAttribute="top" secondItem="oqh-9M-mgg" secondAttribute="top" constant="16" id="O3Q-GA-t4H"/>
+                                    <constraint firstAttribute="trailing" secondItem="ATU-00-nw8" secondAttribute="trailing" constant="68" id="Vkr-lZ-bQ1"/>
+                                    <constraint firstItem="GtN-1d-HP1" firstAttribute="centerY" secondItem="oqh-9M-mgg" secondAttribute="centerY" id="WgQ-Wn-2Qw"/>
+                                    <constraint firstAttribute="trailing" secondItem="RMc-id-13X" secondAttribute="trailing" constant="20" id="XZa-5p-O4j"/>
+                                    <constraint firstItem="WRh-2I-RCO" firstAttribute="top" secondItem="Pfe-ce-akv" secondAttribute="bottom" id="Y47-XZ-D6L"/>
+                                    <constraint firstItem="GtN-1d-HP1" firstAttribute="height" secondItem="oqh-9M-mgg" secondAttribute="height" id="ZWu-LE-LrC"/>
+                                    <constraint firstAttribute="bottom" secondItem="ATU-00-nw8" secondAttribute="bottom" constant="24" id="aTL-PN-DPB"/>
+                                    <constraint firstItem="WRh-2I-RCO" firstAttribute="leading" secondItem="oqh-9M-mgg" secondAttribute="leading" constant="75" id="e8t-8W-sqG"/>
+                                    <constraint firstItem="GtN-1d-HP1" firstAttribute="centerX" secondItem="oqh-9M-mgg" secondAttribute="centerX" id="fmq-tu-E5p"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pfe-ce-akv" secondAttribute="trailing" constant="75" id="iHA-Z1-ZIP"/>
+                                    <constraint firstItem="Pfe-ce-akv" firstAttribute="leading" secondItem="oqh-9M-mgg" secondAttribute="leading" constant="75" id="nVY-B8-5uw"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oc2-y6-gKr"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fAS-2G-FjW" firstAttribute="bottom" secondItem="oc2-y6-gKr" secondAttribute="bottom" id="6Xj-II-jP3"/>
-                            <constraint firstItem="fAS-2G-FjW" firstAttribute="leading" secondItem="oc2-y6-gKr" secondAttribute="leading" id="e9w-ii-27q"/>
+                            <constraint firstAttribute="bottom" secondItem="oqh-9M-mgg" secondAttribute="bottom" id="Mzr-at-O5Z"/>
+                            <constraint firstItem="oqh-9M-mgg" firstAttribute="leading" secondItem="nlc-4y-E7T" secondAttribute="leading" id="NwJ-h6-woV"/>
+                            <constraint firstItem="oqh-9M-mgg" firstAttribute="width" secondItem="nlc-4y-E7T" secondAttribute="width" multiplier="0.5" id="TnE-aI-bVc"/>
+                            <constraint firstItem="oqh-9M-mgg" firstAttribute="top" secondItem="oc2-y6-gKr" secondAttribute="top" id="bht-Ug-WXW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gMq-QZ-WE0"/>
@@ -41,4 +226,12 @@
             <point key="canvasLocation" x="786.83035714285711" y="-176.81159420289856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fukase_thumb_up" width="123" height="128"/>
+        <image name="ko_icon" width="1024" height="576"/>
+        <image name="taimeisan_icon" width="499" height="499"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
