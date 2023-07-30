@@ -27,7 +27,6 @@ class GameViewController: UIViewController {
     private var currentWeapon: WeaponType = .pistol
 
     private var taimeisanActionTimer = Timer()
-    private var aquaMoveButtonTimer = Timer()
     private var timeCount = Int()
     private var damageLimitCount = 3
     private var taimeisanPausingType: TaimeisanPausingType = .standing
@@ -87,7 +86,6 @@ class GameViewController: UIViewController {
         super.viewWillDisappear(animated)
         SceneViewSettingUtil.pauseSession(sceneView)
         taimeisanActionTimer.invalidate()
-        aquaMoveButtonTimer.invalidate()
         AudioUtil.initAudioPlayers()
     }
     
@@ -282,28 +280,31 @@ class GameViewController: UIViewController {
         changeTaimeisanImage(to: taimeisanPausingType)
         
         // 射撃の構えの時
-        if taimeisanPausingType == .shooting {
-            // 最初の２秒間は除外
-            if timeCount <= 2 { return }
-            
-            // 初回だけは固定で「ソコッ！」の音声にする
-            if timeCount == 2 {
-                AudioUtil.playSound(of: .soko)
-                
-            }else {
-                // 初回以降は「ソコッ！」or「タアッ！」をランダムに再生
-                AudioUtil.playSound(of: [Sounds.soko, Sounds.taa].randomElement()!)
-            }
-            
-            // 時間差でデスビームを２連続発射
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                self.shootTaimeiBullet(index: 1)
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                self.shootTaimeiBullet(index: 2)
-            }
+    shootingActionScope: if taimeisanPausingType == .shooting {
+        
+        // 最初の２秒間は除外
+        if timeCount <= 2 {
+            break shootingActionScope
         }
+        
+        // 初回だけは固定で「ソコッ！」の音声にする
+        if timeCount == 2 {
+            AudioUtil.playSound(of: .soko)
+            
+        }else {
+            // 初回以降は「ソコッ！」or「タアッ！」をランダムに再生
+            AudioUtil.playSound(of: [Sounds.soko, Sounds.taa].randomElement()!)
+        }
+        
+        // 時間差でデスビームを２連続発射
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.shootTaimeiBullet(index: 1)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.shootTaimeiBullet(index: 2)
+        }
+    }
         
         // 5回に1回はランダムな座標へ移動させる
         if timeCount % 5 == 0 {
