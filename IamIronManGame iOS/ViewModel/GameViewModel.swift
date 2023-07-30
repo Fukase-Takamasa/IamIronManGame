@@ -13,7 +13,8 @@ import PKHUD
 class GameViewModel {
     let bulletsCountImage: Observable<UIImage?>
     let weaponFired: Observable<Void>
-    
+    let worldMapReceived: Observable<Data>
+
     private let disposeBag = DisposeBag()
     
     struct Input {
@@ -32,6 +33,9 @@ class GameViewModel {
             .map({dependency.currentWeapon.weaponType.bulletsCountImage(at: $0)})
                 
         self.weaponFired = dependency.currentWeapon.fired
+        
+        let _worldMapReceived = PublishRelay<Data>()
+        self.worldMapReceived = _worldMapReceived.asObservable()
         
         dependency.motionDetector.firingMotionDetected
             .subscribe(onNext: { _ in
@@ -62,6 +66,18 @@ class GameViewModel {
             if DeviceTypeHolder.shared.type == .main {
                 dependency.currentWeapon.reload()
             }
+        }
+        
+        BeerKit.onEvent("reloadWeapon") { (peerId, data) in
+            if DeviceTypeHolder.shared.type == .main {
+                dependency.currentWeapon.reload()
+            }
+        }
+        
+        BeerKit.onEvent("worldMap") { (peerId, data) in
+            if DeviceTypeHolder.shared.type == .main { return }
+            guard let data = data else { return }
+            _worldMapReceived.accept(data)
         }
     }
 }

@@ -13,7 +13,7 @@ class SceneViewSettingUtil {
     
     static func setupSceneView(_ sceneView: ARSCNView,
                                sceneViewDelegate: ARSCNViewDelegate,
-                               physicContactDelegate: SCNPhysicsContactDelegate) {
+                               physicContactDelegate: SCNPhysicsContactDelegate, arSessionDelegate: ARSessionDelegate) {
         //シーンの作成
         sceneView.scene = SCNScene()
         //光源の有効化
@@ -22,6 +22,7 @@ class SceneViewSettingUtil {
         sceneView.delegate = sceneViewDelegate
         //衝突検知のためのDelegate設定
         sceneView.scene.physicsWorld.contactDelegate = physicContactDelegate
+        sceneView.session.delegate = arSessionDelegate
     }
     
     static func startSession(_ sceneView: ARSCNView) {

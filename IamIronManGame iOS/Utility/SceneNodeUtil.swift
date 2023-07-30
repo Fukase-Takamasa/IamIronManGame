@@ -69,6 +69,20 @@ class SceneNodeUtil {
         return (distance >= 0.15)
     }
     
+    static func createRemoConInfoEntity(from cameraNode: SCNNode) -> RemoConInfoInMap {
+        let positionEntity = Vector3Entity(
+            x: cameraNode.position.x,
+            y: cameraNode.position.y,
+            z: cameraNode.position.z
+        )
+        let angleEntity = Vector3Entity(
+            x: cameraNode.eulerAngles.x,
+            y: cameraNode.eulerAngles.y,
+            z: cameraNode.eulerAngles.z
+        )
+        return RemoConInfoInMap(position: positionEntity, angle: angleEntity)
+    }
+    
     //２座標間の距離を計算（単位:m）
     private static func getDistance(from pos1: SCNVector3, to pos2: SCNVector3) -> Float {
         let diff = SCNVector3Make(pos1.x - pos2.x, pos1.y - pos2.y, pos1.z - pos2.z)

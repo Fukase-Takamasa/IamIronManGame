@@ -11,6 +11,7 @@ import RxCocoa
 import SceneKit
 import ARKit
 import GTProgressBar
+import BeerKit
 
 class GameViewController: UIViewController {
     var viewModel: GameViewModel!
@@ -23,6 +24,7 @@ class GameViewController: UIViewController {
     private var pistolParentNode = SCNNode()
     private var taimeisan = SCNNode()
     private var taimeiBulletNode: SCNNode?
+    private var remoConPistol = SCNNode()
     
     private var currentWeapon: WeaponType = .pistol
 
@@ -34,6 +36,7 @@ class GameViewController: UIViewController {
     private var playerLifePoint = 100.0
     private var isTaimeisanKnockedDown = false
     private var isPlayerKnockedDown = false
+    private var isWorldMapSent = false
     
     // - notification
     private let _targetHit = PublishRelay<Void>()
@@ -67,6 +70,39 @@ class GameViewController: UIViewController {
                 self.fireWeapon()
             }).disposed(by: disposeBag)
         
+        viewModel.worldMapReceived
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else {return}
+                guard let unarchived = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [ARWorldMap.classForKeyedUnarchiver()], from: element),
+                      let worldMap = unarchived as? ARWorldMap else {
+                    print("アンラップ失敗: data: \(element)")
+                    return
+                }
+                print("アンラップ成功: worldMap: \(worldMap)")
+                
+                // Run the session with the received world map.
+                let configuration = ARWorldTrackingConfiguration()
+                configuration.planeDetection = .horizontal
+                configuration.initialWorldMap = worldMap
+                sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+                
+                // Remember who provided the map for showing UI feedback.
+                //                mapProvider = peer
+            }).disposed(by: disposeBag)
+        
+        BeerKit.onEvent("remoConInfoInMap") { peerID, data in
+            guard let data = data else { return }
+            if DeviceTypeHolder.shared.type == .main {
+                do {
+                    let remoConInfo = try JSONDecoder().decode(RemoConInfoInMap.self, from: data)
+                    self.moveWeaponOnRemoCon(remoConInfo: remoConInfo)
+                    print("moveWeaponOnRemoConした")
+                } catch {
+                    print("moveWeaponOnRemoConできなかった")
+                }
+            }
+        }
+        
         //MARK: - other
         addSceneView()
         
@@ -76,9 +112,12 @@ class GameViewController: UIViewController {
         
         switch DeviceTypeHolder.shared.type {
         case .main:
-            startGame()
+//            startGame()
+//            showWeapon(.pistol)
+            addPistolForRemoCon()
+            break
         case .remoCon:
-            showWeapon(.pistol)
+            break
         case .camera:
             break
         }
@@ -99,7 +138,24 @@ class GameViewController: UIViewController {
     private func addSceneView() {
         sceneView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width / 2, height: self.view.frame.size.height)
         view.insertSubview(sceneView, at: 0)
-        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self)
+        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self,arSessionDelegate: self)
+    }
+    
+    private func sendWorldMapToOtherDevices() {
+        sceneView
+            .session
+            .getCurrentWorldMap { worldMap, error in
+                print("getCurrentWorldMap worldMap: \(String(describing: worldMap)) error: \(String(describing: error))")
+                guard let map = worldMap else {
+                    print("Error: \(error!.localizedDescription)")
+                    return
+                }
+                guard let data = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true) else {
+                    fatalError("can't encode map")
+                }
+                BeerKit.sendEvent("worldMap", data: data)
+                print("worldMapを送信した worldMap, \(map), data: \(data)")
+            }
     }
     
     //指定された武器を表示
@@ -116,8 +172,8 @@ class GameViewController: UIViewController {
 
     private func setupWeaponNode(type: WeaponType) -> SCNNode {
         let weaponParentNode = SceneNodeUtil.loadScnFile(of: GameConst.getWeaponScnAssetsPath(type), nodeName: "\(type.name)Parent")
-        SceneNodeUtil.addBillboardConstraint(weaponParentNode)
-        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
+//        SceneNodeUtil.addBillboardConstraint(weaponParentNode)
+//        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
         return weaponParentNode
     }
     
@@ -166,25 +222,36 @@ class GameViewController: UIViewController {
         )
     }
     
-    private func keepWeaponInFPSPosition() {
-        var weaponParentNode: SCNNode {
-            switch currentWeapon {
-            case .pistol:
-                return pistolParentNode
-            case .bazooka:
-                return SCNNode()
-            }
-        }
-        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
+//    private func keepWeaponInFPSPosition() {
+//        var weaponParentNode: SCNNode {
+//            switch currentWeapon {
+//            case .pistol:
+//                return pistolParentNode
+//            case .bazooka:
+//                return SCNNode()
+//            }
+//        }
+//        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
+//    }
+    
+    private func moveWeaponOnRemoCon(remoConInfo: RemoConInfoInMap) {
+        remoConPistol.position = SCNVector3(
+            x: remoConInfo.position.x,
+            y: remoConInfo.position.y,
+            z: remoConInfo.position.z
+        )
+        remoConPistol.eulerAngles = SCNVector3(
+            x: remoConInfo.angle.x,
+            y: remoConInfo.angle.y,
+            z: remoConInfo.angle.z
+        )
     }
     
     private func isTargetHit(contact: SCNPhysicsContact) -> Bool {
         return (contact.nodeA.name == GameConst.bulletNodeName && contact.nodeB.name == GameConst.targetNodeName) ||
             (contact.nodeB.name == GameConst.bulletNodeName && contact.nodeA.name == GameConst.targetNodeName)
     }
-    
-    
-    // MARK: - アクアゲーム
+        
     private func startGame() {
         addTaimeisan()
         addCameraSphere()
@@ -217,7 +284,6 @@ class GameViewController: UIViewController {
     
     private func handleAttackToTaimeisan(nodeA: SCNNode, nodeB: SCNNode) {
         guard !isTaimeisanKnockedDown else {
-            print("タイメイさんが既にダウンしているので、return")
             return
         }
         
@@ -236,11 +302,9 @@ class GameViewController: UIViewController {
 //        }
         
         taimeisanLifePoint -= damege
-        print("taimeisanHP: \(taimeisanLifePoint)")
         
         DispatchQueue.main.async {
             self.taimeisanLifeBar.animateTo(progress: CGFloat(self.taimeisanLifePoint / 100)) {
-                print("taimeisanProgress: \(self.taimeisanLifeBar.progress)")
                 
                 if self.taimeisanLifeBar.progress <= 0.3 {
                     AudioUtil.playSound(of: .karadaga)
@@ -259,7 +323,6 @@ class GameViewController: UIViewController {
     
     private func handleAttackToCamera(nodeA: SCNNode, nodeB: SCNNode) {
         guard !isPlayerKnockedDown else {
-            print("プレーヤーが既にダウンしているので、return")
             return
         }
         
@@ -335,7 +398,6 @@ class GameViewController: UIViewController {
         let ramdomTarget = SCNVector3(x: Float.random(in: -1.5...1.5), y: taimeisan.position.y, z: Float.random(in: -1.5...1.5))
         let action = SCNAction.move(to: ramdomTarget, duration: 3)
         taimeisan.runAction(action)
-        print("taimeisan移動")
     }
     
     private func playerKnockedDown() {
@@ -361,7 +423,6 @@ class GameViewController: UIViewController {
         
         // タイメイさんNodeにノックアウトアニメーション＆完了後の処理
         knockedDownAnimation(to: sceneView.scene.rootNode.childNode(withName: "taimeisan", recursively: false)!) {
-            print("taimeisanDowned")
                        
             //音楽を6秒間でフェードアウト
             AudioUtil.audioPlayers[.bossBattle]?.setVolume(.zero, fadeDuration: 6)
@@ -428,6 +489,13 @@ class GameViewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(taimeisan)
     }
     
+    // リモコンに追従させるピストルを設置
+    private func addPistolForRemoCon() {
+        let pistolScene = SCNScene(named: "Art.scnassets/Weapon/RemoConPistol/remoConPistol.scn")!
+        remoConPistol = pistolScene.rootNode.childNode(withName: "pistol", recursively: false)!
+        sceneView.scene.rootNode.addChildNode(remoConPistol)
+    }
+    
     //プレイヤーへの攻撃当たり判定用Nodeを設置＆セットアップ
     private func addCameraSphere() {
         let sphere: SCNGeometry = SCNSphere(radius: 0.07)
@@ -471,7 +539,6 @@ class GameViewController: UIViewController {
         bulletNode.physicsBody?.isAffectedByGravity = false
         
         sceneView.scene.rootNode.addChildNode(bulletNode)
-        print("デスビームを設置")
     }
     
     // タイメイさんのダークオーラParticleを表示
@@ -490,7 +557,6 @@ class GameViewController: UIViewController {
         taimeiBulletNode?.runAction(action, completionHandler: {
             self.sceneView.scene.rootNode.childNode(withName: "taimeiBullet\(index)", recursively: false)?.removeFromParentNode()
         })
-        print("デスビームを発射")
     }
     
     private func knockedDownAnimation(to fighterNode: SCNNode, completion: @escaping () -> Void) {
@@ -533,7 +599,27 @@ extension GameViewController: ARSCNViewDelegate {
             }
         case .remoCon:
             //現在表示中の武器をラップしている空のオブジェクトを常にカメラと同じPositionに移動させ続ける
-            keepWeaponInFPSPosition()
+//            keepWeaponInFPSPosition()
+            guard let camera = sceneView.pointOfView else {
+                return
+            }
+            let entity = SceneNodeUtil.createRemoConInfoEntity(from: camera)
+            let data: Data = try! JSONEncoder().encode(entity)
+            BeerKit.sendEvent("remoConInfoInMap", data: data)
+        default:
+            break
+        }
+    }
+}
+
+extension GameViewController: ARSessionDelegate {
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        switch frame.worldMappingStatus {
+        case .extending, .mapped:
+            if isWorldMapSent { return }
+            print("十分にマップされたのでイベント送信で他のデバイスに共有する")
+            sendWorldMapToOtherDevices()
+            isWorldMapSent = true
         default:
             break
         }
@@ -546,13 +632,11 @@ extension GameViewController: SCNPhysicsContactDelegate {
     func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
         if isCollisionOccuredBetweenPlayerAndTaimeisan(nodeA: contact.nodeA,
                                                      nodeB: contact.nodeB) {
-            print("タイメイさんとプレーヤーが当たった")
             handleAttackToTaimeisan(nodeA: contact.nodeA, nodeB: contact.nodeB)
         }
         
         if isCollisionOccuredBetweenTaimeiBulletAndCamera(nodeA: contact.nodeA,
                                                      nodeB: contact.nodeB) {
-            print("デスボールとカメラが当たった")
             handleAttackToCamera(nodeA: contact.nodeA, nodeB: contact.nodeB)
         }
     }
