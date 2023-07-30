@@ -32,7 +32,7 @@ class GameConst {
     static let taimeiSanImage = UIImage(named: "taimei-san.jpg")
 
     static func getWeaponScnAssetsPath(_ weapon: WeaponType) -> String {
-        let weaponPath = "art.scnassets/Weapon/"
+        let weaponPath = "Art.scnassets/Weapon/"
         switch weapon {
         case .pistol:
             return weaponPath + "Pistol/" + weapon.name + ".scn"
@@ -42,12 +42,12 @@ class GameConst {
     }
     
     static func getTargetScnAssetsPath() -> String {
-        let targetPath = "art.scnassets/Target/"
+        let targetPath = "Art.scnassets/Target/"
         return targetPath + targetNodeName + ".scn"
     }
     
     static func getParticleSystemScnAssetsPath(_ particleSystem: ParticleSystemTypes) -> String {
-        let particleSystemPath = "art.scnassets/ParticleSystem/"
+        let particleSystemPath = "Art.scnassets/ParticleSystem/"
         switch particleSystem {
         case .bazookaExplosion:
             return particleSystemPath + particleSystem.rawValue + ".scn"

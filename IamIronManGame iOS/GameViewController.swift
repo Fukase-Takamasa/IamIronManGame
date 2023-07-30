@@ -14,7 +14,6 @@ import GTProgressBar
 
 class GameViewController: UIViewController {
     var viewModel: GameViewModel!
-//    let sceneManager = GameSceneManager()
     let disposeBag = DisposeBag()
     
     var sceneView = ARSCNView()
@@ -75,6 +74,8 @@ class GameViewController: UIViewController {
         //各武器をセットアップ
         pistolParentNode = setupWeaponNode(type: .pistol)
         originalBulletNode = createOriginalBulletNode()
+        
+        startGame()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,7 +88,7 @@ class GameViewController: UIViewController {
         SceneViewSettingUtil.pauseSession(sceneView)
         taimeisanActionTimer.invalidate()
         aquaMoveButtonTimer.invalidate()
-        AudioModel.initAudioPlayers()
+        AudioUtil.initAudioPlayers()
     }
     
     private func addSceneView() {
@@ -178,18 +179,18 @@ class GameViewController: UIViewController {
     
     
     // MARK: - アクアゲーム
-    private func startingGame() {
+    private func startGame() {
         addTaimeisan()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            AudioModel.playSound(of: .yoro)
+            AudioUtil.playSound(of: .yoro)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.showDarkAuraParticle()
-            AudioModel.playSound(of: .bossBattle)
+            AudioUtil.playSound(of: .bossBattle)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            AudioModel.playSound(of: .kakugo)
+            AudioUtil.playSound(of: .kakugo)
             self.taimeisanActionTimer = Timer.scheduledTimer(timeInterval: 1.6,
                                                              target: self,
                                                              selector: #selector(self.taimeisanActionTimerUpdated(timer:)),
@@ -213,8 +214,8 @@ class GameViewController: UIViewController {
             return
         }
         
-        AudioModel.playSound(of: .besi)
-        AudioModel.playSound(of: [Sounds.uu, Sounds.kuo].randomElement()!)
+        AudioUtil.playSound(of: .besi)
+        AudioUtil.playSound(of: [Sounds.uu, Sounds.kuo].randomElement()!)
         
         nodeA.name!.contains("playerBullet") ? nodeA.removeFromParentNode() : nodeB.removeFromParentNode()
                    
@@ -235,11 +236,11 @@ class GameViewController: UIViewController {
                 print("taimeisanProgress: \(self.taimeisanLifeBar.progress)")
                 
                 if self.taimeisanLifeBar.progress <= 0.3 {
-                    AudioModel.playSound(of: .karadaga)
+                    AudioUtil.playSound(of: .karadaga)
                 }
                 
                 if self.taimeisanLifeBar.progress <= 0.0 {
-                    AudioModel.playSound(of: .guaaa)
+                    AudioUtil.playSound(of: .guaaa)
                     
                     self.KO_Animation()
                     self.taimeisanKnockedDown()
@@ -260,7 +261,7 @@ class GameViewController: UIViewController {
 //            return
 //        }
         
-        AudioModel.playSound(of: .aquaDamage)
+        AudioUtil.playSound(of: .aquaDamage)
 
         nodeA.name!.contains("taimeiBullet") ? nodeA.removeFromParentNode() : nodeB.removeFromParentNode()
         
@@ -287,11 +288,11 @@ class GameViewController: UIViewController {
             
             // 初回だけは固定で「ソコッ！」の音声にする
             if timeCount == 2 {
-                AudioModel.playSound(of: .soko)
+                AudioUtil.playSound(of: .soko)
                 
             }else {
                 // 初回以降は「ソコッ！」or「タアッ！」をランダムに再生
-                AudioModel.playSound(of: [Sounds.soko, Sounds.taa].randomElement()!)
+                AudioUtil.playSound(of: [Sounds.soko, Sounds.taa].randomElement()!)
             }
             
             // 時間差でデスビームを２連続発射
@@ -353,7 +354,7 @@ class GameViewController: UIViewController {
             print("taimeisanDowned")
                        
             //音楽を6秒間でフェードアウト
-            AudioModel.audioPlayers[.bossBattle]?.setVolume(.zero, fadeDuration: 6)
+            AudioUtil.audioPlayers[.bossBattle]?.setVolume(.zero, fadeDuration: 6)
             
             // 画面を6秒間で白くフェードアウト
             self.showWhiteFadingView()
@@ -389,14 +390,14 @@ class GameViewController: UIViewController {
     private func shootTaimeiBullet(index: Int) {
         self.addTaimeiBullet(index: index)
         self.animateTaimeiBullet(index: index)
-        AudioModel.playSound(of: .beam)
+        AudioUtil.playSound(of: .beam)
     }
 
     
     // MARK: - Setup SceneNode & Particle
     // タイメイさんNodeを設置＆セットアップ
     private func addTaimeisan() {
-        let taimeisanScene = SCNScene(named: "art.scnassets/Taimeisan/taimeisan.scn")!
+        let taimeisanScene = SCNScene(named: "Art.scnassets/Taimeisan/taimeisan.scn")!
         taimeisan = taimeisanScene.rootNode.childNode(withName: "taimeisan", recursively: false)!
         let taimeisanGeometry = taimeisan.geometry!
         let taimeisanShape = SCNPhysicsShape(geometry: taimeisanGeometry, options: [SCNPhysicsShape.Option.scale: taimeisan.scale])
@@ -444,7 +445,7 @@ class GameViewController: UIViewController {
         sphere.firstMaterial?.diffuse.contents = UIColor.clear
         
         taimeiBulletNode = SCNNode(geometry: sphere)
-        let scene = SCNScene(named: "art.scnassets/ParticleSystem/deathBall.scn")!
+        let scene = SCNScene(named: "Art.scnassets/ParticleSystem/deathBall.scn")!
 
         taimeiBulletNode?.addChildNode(scene.rootNode.childNode(withName: "deathBall", recursively: false)!)
         guard let bulletNode = taimeiBulletNode else {return}
@@ -493,7 +494,7 @@ class GameViewController: UIViewController {
     // MARK: - UIView Animation
     // 画面に表示される「KO」という画像をアニメーション
     private func KO_Animation() {
-        AudioModel.playSound(of: .KO)
+        AudioUtil.playSound(of: .KO)
         
         self.koImage.alpha = 0
         self.koImage.isHidden = false
