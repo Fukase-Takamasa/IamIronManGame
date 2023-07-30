@@ -92,6 +92,7 @@ class GameViewController: UIViewController {
     private func addSceneView() {
         sceneView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width / 2, height: self.view.frame.size.height)
         view.insertSubview(sceneView, at: 0)
+        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self)
     }
     
     //指定された武器を表示
@@ -179,6 +180,7 @@ class GameViewController: UIViewController {
     // MARK: - アクアゲーム
     private func startGame() {
         addTaimeisan()
+        addCameraSphere()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             AudioUtil.playSound(of: .yoro)
@@ -199,7 +201,7 @@ class GameViewController: UIViewController {
     }
     
     private func isCollisionOccuredBetweenPlayerAndTaimeisan(nodeA: SCNNode, nodeB: SCNNode) -> Bool {
-        return (nodeA.name == "taimeisan" && nodeB.name == "playerBullet") || (nodeB.name == "taimeisan" && nodeA.name == "playerBullet")
+        return (nodeA.name == "taimeisan" && nodeB.name!.contains("playerBullet")) || (nodeB.name == "taimeisan" && nodeA.name!.contains("playerBullet"))
     }
     
     private func isCollisionOccuredBetweenTaimeiBulletAndCamera(nodeA: SCNNode, nodeB: SCNNode) -> Bool {

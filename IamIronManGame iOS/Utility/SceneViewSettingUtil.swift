@@ -25,16 +25,12 @@ class SceneViewSettingUtil {
     }
     
     static func startSession(_ sceneView: ARSCNView) {
-        if (ARConfiguration.isSupported) {
-            //コンフィギュレーションの生成
-            let configuration = ARWorldTrackingConfiguration()
-            //平面検出の有効化
-            configuration.planeDetection = .horizontal
-            //セッションの開始
-            sceneView.session.run(configuration)
-        } else {
-            
-        }
+        //コンフィギュレーションの生成
+        let configuration = ARWorldTrackingConfiguration()
+        //平面検出の有効化
+        configuration.planeDetection = .horizontal
+        //セッションの開始
+        sceneView.session.run(configuration)
     }
     
     static func pauseSession(_ sceneView: ARSCNView) {
