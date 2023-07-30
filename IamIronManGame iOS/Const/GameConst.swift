@@ -27,7 +27,7 @@ class GameConst {
 
     static let targetNodeName = "target"
     
-    static let bulletNodeName = "bullet"
+    static let bulletNodeName = "playerBullet"
 
     static let taimeiSanImage = UIImage(named: "taimei-san.jpg")
 

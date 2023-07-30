@@ -218,7 +218,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="gMq-QZ-WE0"/>
                     <connections>
-                        <outlet property="bulletsCountImageView" destination="fAS-2G-FjW" id="mg6-zO-1kC"/>
+                        <outlet property="bulletsCountImageView" destination="fAS-2G-FjW" id="1vZ-xw-KPh"/>
+                        <outlet property="koImage" destination="GtN-1d-HP1" id="kvy-NC-fOi"/>
+                        <outlet property="playerLifeBar" destination="ATU-00-nw8" id="ZuF-QP-kHr"/>
+                        <outlet property="taimeisanLifeBar" destination="Pfe-ce-akv" id="79a-vh-jzu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLx-iX-bif" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
