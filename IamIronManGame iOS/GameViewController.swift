@@ -25,7 +25,8 @@ class GameViewController: UIViewController {
     private var taimeisan = SCNNode()
     private var taimeiBulletNode: SCNNode?
     private var remoConPistolParentNode = SCNNode()
-    
+    private var startGameButtonNode = SCNNode()
+
     private var currentWeapon: WeaponType = .pistol
 
     private var taimeisanActionTimer = Timer()
@@ -115,6 +116,8 @@ class GameViewController: UIViewController {
         case .camera:
             break
         }
+        
+        addStartGameButtonNode()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -476,6 +479,14 @@ class GameViewController: UIViewController {
         let pistolScene = SCNScene(named: "Art.scnassets/Weapon/RemoConPistol/remoConPistol.scn")!
         remoConPistolParentNode = pistolScene.rootNode.childNode(withName: "pistolParent", recursively: false)!
         sceneView.scene.rootNode.addChildNode(remoConPistolParentNode)
+    }
+    
+    private func addStartGameButtonNode() {
+        let startGameButtonNodeScene = SCNScene(named: "Art.scnassets/StartGameButton.scn")!
+        startGameButtonNode = startGameButtonNodeScene.rootNode.childNode(withName: "startGameButton", recursively: false)!
+        let cameraPosition = sceneView.pointOfView?.position ?? SCNVector3()
+        startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.2, z: cameraPosition.z - 0.2)
+        sceneView.scene.rootNode.addChildNode(startGameButtonNode)
     }
     
     //プレイヤーへの攻撃当たり判定用Nodeを設置＆セットアップ

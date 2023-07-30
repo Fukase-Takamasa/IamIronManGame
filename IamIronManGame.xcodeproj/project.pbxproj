@@ -30,6 +30,7 @@
 		864C87BA2A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
 		864C87BB2A554D9900EFC5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864C87832A554D9900EFC5C3 /* Assets.xcassets */; };
 		8678D0382A7652360026A241 /* RemoConInfoInMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678D0372A7652360026A241 /* RemoConInfoInMap.swift */; };
+		8678D03B2A76AD2A0026A241 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678D03A2A76AD2A0026A241 /* LabelNode.swift */; };
 		867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */; };
 		86C40BC02A7540070040189E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BBF2A7540070040189E /* TopViewController.swift */; };
 		86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40BC12A7540130040189E /* TopViewController.storyboard */; };
@@ -134,6 +135,7 @@
 		864C87B22A554D9900EFC5C3 /* IamIronManGame_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IamIronManGame_macOS.entitlements; sourceTree = "<group>"; };
 		86596F0E2A74FE2C00B7B8DC /* IamIronManGame-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IamIronManGame-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8678D0372A7652360026A241 /* RemoConInfoInMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoConInfoInMap.swift; sourceTree = "<group>"; };
+		8678D03A2A76AD2A0026A241 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewSettingUtil.swift; sourceTree = "<group>"; };
 		86C40BBF2A7540070040189E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		86C40BC12A7540130040189E /* TopViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopViewController.storyboard; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				864C878B2A554D9900EFC5C3 /* AppDelegate.swift */,
 				86C40BC32A75438E0040189E /* Const */,
 				86C40BCA2A75438E0040189E /* Extension */,
+				8678D0392A76AD150026A241 /* CustomClass */,
 				86C40BD22A75438E0040189E /* Utility */,
 				86C40C052A7545930040189E /* Manager */,
 				8678D0362A7651F60026A241 /* Entity */,
@@ -336,6 +339,14 @@
 				8678D0372A7652360026A241 /* RemoConInfoInMap.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		8678D0392A76AD150026A241 /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				8678D03A2A76AD2A0026A241 /* LabelNode.swift */,
+			);
+			path = CustomClass;
 			sourceTree = "<group>";
 		};
 		86C40BC32A75438E0040189E /* Const */ = {
@@ -806,6 +817,7 @@
 				8678D0382A7652360026A241 /* RemoConInfoInMap.swift in Sources */,
 				86C40BF02A75438E0040189E /* UIScrollView+Extension.swift in Sources */,
 				86C40BC02A7540070040189E /* TopViewController.swift in Sources */,
+				8678D03B2A76AD2A0026A241 /* LabelNode.swift in Sources */,
 				86C40C812A754CB80040189E /* NotificationModel.swift in Sources */,
 				86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */,
 				86C40C822A754CB80040189E /* TaimeisanPausingType.swift in Sources */,
