@@ -64,14 +64,16 @@ class MotionDetector {
     
     //MARK: - Private Methods
     private func didUpdateAccelerationData(data: CMAcceleration, completion: (() -> ())?) {
-        let compositAcceleration = getCompositeAcceleration(0, data.y, data.z)
-        
+//        let compositAcceleration = getCompositeAcceleration(0, data.y, data.z)
+        let compositAcceleration = getCompositeAcceleration(data.x, data.y, 0)
+
         let gyroZ = (gyro.z * gyro.z)
         
         //連続動作の内の初回
         if !postBool
-            && compositAcceleration >= 1.5
-            && gyroZ < 10 {
+//            && compositAcceleration >= 1.5
+//            && gyroZ < 10 {
+            && compositAcceleration >= 4 {
             
             preBool = true
             
@@ -81,8 +83,9 @@ class MotionDetector {
         
         //連続動作の内の2回目以降
         if postBool
-            && compositAcceleration >= 1.5
-            && gyroZ < 10 {
+//            && compositAcceleration >= 1.5
+//            && gyroZ < 10 {
+            && compositAcceleration >= 4 {
             
             postBool = false
             preBool = false
@@ -93,10 +96,11 @@ class MotionDetector {
     }
     
     private func didUpdateGyroData(data: CMRotationRate, completion: (() -> ())?, secretEvent: (() -> ())?) {
-        let compositGyro = getCompositeGyro(0, 0, gyro.z)
+//        let compositGyro = getCompositeGyro(0, 0, gyro.z)
+        let compositGyro = getCompositeGyro(gyro.x, 0, 0)
 
-        if compositGyro >= 10 {
-            
+//        if compositGyro >= 10 {
+        if compositGyro >= 30 {
             completion?()
             
             gyroZcount += 1
@@ -104,12 +108,12 @@ class MotionDetector {
             
         }
         
-        if gyroZcount == 20 {
-            
-            print("gyroZcountが20に達したのでターゲットを泰明さんに変えます")
-            
-            secretEvent?()
-        }
+//        if gyroZcount == 20 {
+//            
+//            print("gyroZcountが20に達したのでターゲットを泰明さんに変えます")
+//            
+//            secretEvent?()
+//        }
 
     }
         
