@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     private var pistolParentNode = SCNNode()
     private var taimeisan = SCNNode()
     private var taimeiBulletNode: SCNNode?
-    private var remoConPistol = SCNNode()
+    private var remoConPistolParentNode = SCNNode()
     
     private var currentWeapon: WeaponType = .pistol
 
@@ -221,26 +221,14 @@ class GameViewController: UIViewController {
             }
         )
     }
-    
-//    private func keepWeaponInFPSPosition() {
-//        var weaponParentNode: SCNNode {
-//            switch currentWeapon {
-//            case .pistol:
-//                return pistolParentNode
-//            case .bazooka:
-//                return SCNNode()
-//            }
-//        }
-//        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
-//    }
-    
+
     private func moveWeaponOnRemoCon(remoConInfo: RemoConInfoInMap) {
-        remoConPistol.position = SCNVector3(
+        remoConPistolParentNode.position = SCNVector3(
             x: remoConInfo.position.x,
             y: remoConInfo.position.y,
             z: remoConInfo.position.z
         )
-        remoConPistol.eulerAngles = SCNVector3(
+        remoConPistolParentNode.eulerAngles = SCNVector3(
             x: remoConInfo.angle.x,
             y: remoConInfo.angle.y,
             z: remoConInfo.angle.z
@@ -492,8 +480,8 @@ class GameViewController: UIViewController {
     // リモコンに追従させるピストルを設置
     private func addPistolForRemoCon() {
         let pistolScene = SCNScene(named: "Art.scnassets/Weapon/RemoConPistol/remoConPistol.scn")!
-        remoConPistol = pistolScene.rootNode.childNode(withName: "pistol", recursively: false)!
-        sceneView.scene.rootNode.addChildNode(remoConPistol)
+        remoConPistolParentNode = pistolScene.rootNode.childNode(withName: "pistolParent", recursively: false)!
+        sceneView.scene.rootNode.addChildNode(remoConPistolParentNode)
     }
     
     //プレイヤーへの攻撃当たり判定用Nodeを設置＆セットアップ
