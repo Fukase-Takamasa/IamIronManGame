@@ -69,26 +69,20 @@ class GameViewController: UIViewController {
                 guard let self = self else {return}
                 self.fireWeapon()
             }).disposed(by: disposeBag)
-        
-        viewModel.worldMapReceived
-            .subscribe(onNext: { [weak self] element in
-                guard let self = self else {return}
-                guard let unarchived = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [ARWorldMap.classForKeyedUnarchiver()], from: element),
-                      let worldMap = unarchived as? ARWorldMap else {
-                    print("アンラップ失敗: data: \(element)")
-                    return
-                }
-                print("アンラップ成功: worldMap: \(worldMap)")
-                
-                // Run the session with the received world map.
-                let configuration = ARWorldTrackingConfiguration()
-                configuration.planeDetection = .horizontal
-                configuration.initialWorldMap = worldMap
-                sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-                
-                // Remember who provided the map for showing UI feedback.
-                //                mapProvider = peer
-            }).disposed(by: disposeBag)
+
+        BeerKit.onEvent("worldMap") { (peerId, data) in
+            if DeviceTypeHolder.shared.type == .main { return }
+            guard let data = data else { return }
+            guard let unarchived = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [ARWorldMap.classForKeyedUnarchiver()], from: data),
+                  let worldMap = unarchived as? ARWorldMap else {
+                return
+            }
+            // Run the session with the received world map.
+            let configuration = ARWorldTrackingConfiguration()
+            configuration.planeDetection = .horizontal
+            configuration.initialWorldMap = worldMap
+            self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        }
         
         BeerKit.onEvent("remoConInfoInMap") { peerID, data in
             guard let data = data else { return }
