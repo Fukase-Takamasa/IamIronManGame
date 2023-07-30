@@ -30,6 +30,12 @@ class SceneViewSettingUtil {
         let configuration = ARWorldTrackingConfiguration()
         //平面検出の有効化
         configuration.planeDetection = .horizontal
+        // 環境マッピングを有効にする
+        configuration.environmentTexturing = .automatic
+        
+        if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
+            configuration.frameSemantics = .personSegmentationWithDepth
+        }
         //セッションの開始
         sceneView.session.run(configuration)
     }
