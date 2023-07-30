@@ -74,7 +74,14 @@ class GameViewController: UIViewController {
         pistolParentNode = setupWeaponNode(type: .pistol)
         originalBulletNode = createOriginalBulletNode()
         
-        startGame()
+        switch DeviceTypeHolder.shared.type {
+        case .main:
+            startGame()
+        case .remoCon:
+            showWeapon(.pistol)
+        case .camera:
+            break
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
