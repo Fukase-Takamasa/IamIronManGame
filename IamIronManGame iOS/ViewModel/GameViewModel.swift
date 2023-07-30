@@ -63,11 +63,5 @@ class GameViewModel {
                 dependency.currentWeapon.reload()
             }
         }
-        
-        BeerKit.onEvent("reloadWeapon") { (peerId, data) in
-            if DeviceTypeHolder.shared.type == .main {
-                dependency.currentWeapon.reload()
-            }
-        }
     }
 }
