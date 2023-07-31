@@ -32,6 +32,7 @@
 		8678D0382A7652360026A241 /* RemoConInfoInMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678D0372A7652360026A241 /* RemoConInfoInMap.swift */; };
 		8678D03B2A76AD2A0026A241 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678D03A2A76AD2A0026A241 /* LabelNode.swift */; };
 		867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */; };
+		8696BD9C2A776EBB004F9068 /* SceneActionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */; };
 		86C40BC02A7540070040189E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BBF2A7540070040189E /* TopViewController.swift */; };
 		86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40BC12A7540130040189E /* TopViewController.storyboard */; };
 		86C40BE42A75438E0040189E /* GameConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BC42A75438E0040189E /* GameConst.swift */; };
@@ -137,6 +138,7 @@
 		8678D0372A7652360026A241 /* RemoConInfoInMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoConInfoInMap.swift; sourceTree = "<group>"; };
 		8678D03A2A76AD2A0026A241 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewSettingUtil.swift; sourceTree = "<group>"; };
+		8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneActionEvent.swift; sourceTree = "<group>"; };
 		86C40BBF2A7540070040189E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		86C40BC12A7540130040189E /* TopViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopViewController.storyboard; sourceTree = "<group>"; };
 		86C40BC42A75438E0040189E /* GameConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConst.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				8678D0372A7652360026A241 /* RemoConInfoInMap.swift */,
+				8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */,
 				86C40C822A754CB80040189E /* TaimeisanPausingType.swift in Sources */,
 				86C40C9D2A755BFD0040189E /* DeviceTypeHolder.swift in Sources */,
+				8696BD9C2A776EBB004F9068 /* SceneActionEvent.swift in Sources */,
 				86C40BEE2A75438E0040189E /* Font+Extension.swift in Sources */,
 				86C40BE42A75438E0040189E /* GameConst.swift in Sources */,
 			);
@@ -1024,7 +1028,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1064,7 +1068,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

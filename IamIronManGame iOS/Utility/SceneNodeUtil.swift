@@ -69,17 +69,17 @@ class SceneNodeUtil {
         return (distance >= 0.15)
     }
     
+    static func createVector3Entity(from sceneVector3: SCNVector3) -> Vector3Entity {
+        return Vector3Entity(x: sceneVector3.x, y: sceneVector3.y, z: sceneVector3.z)
+    }
+    
+    static func createSceneVector3(from entity: Vector3Entity) -> SCNVector3 {
+        return SCNVector3(x: entity.x, y: entity.y, z: entity.z)
+    }
+    
     static func createRemoConInfoEntity(from cameraNode: SCNNode) -> RemoConInfoInMap {
-        let positionEntity = Vector3Entity(
-            x: cameraNode.position.x,
-            y: cameraNode.position.y,
-            z: cameraNode.position.z
-        )
-        let angleEntity = Vector3Entity(
-            x: cameraNode.eulerAngles.x,
-            y: cameraNode.eulerAngles.y,
-            z: cameraNode.eulerAngles.z
-        )
+        let positionEntity = createVector3Entity(from: cameraNode.position)
+        let angleEntity = createVector3Entity(from: cameraNode.eulerAngles)
         return RemoConInfoInMap(position: positionEntity, angle: angleEntity)
     }
     
