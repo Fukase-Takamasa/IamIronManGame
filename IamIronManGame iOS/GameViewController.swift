@@ -91,9 +91,7 @@ class GameViewController: UIViewController {
                 do {
                     let remoConInfo = try JSONDecoder().decode(RemoConInfoInMap.self, from: data)
                     self.moveWeaponOnRemoCon(remoConInfo: remoConInfo)
-                    print("moveWeaponOnRemoConした")
                 } catch {
-                    print("moveWeaponOnRemoConできなかった")
                 }
             }
         }
@@ -142,16 +140,13 @@ class GameViewController: UIViewController {
         sceneView
             .session
             .getCurrentWorldMap { worldMap, error in
-                print("getCurrentWorldMap worldMap: \(String(describing: worldMap)) error: \(String(describing: error))")
                 guard let map = worldMap else {
-                    print("Error: \(error!.localizedDescription)")
                     return
                 }
                 guard let data = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true) else {
                     fatalError("can't encode map")
                 }
                 BeerKit.sendEvent("worldMap", data: data)
-                print("worldMapを送信した worldMap, \(map), data: \(data)")
             }
     }
     
@@ -257,6 +252,10 @@ class GameViewController: UIViewController {
                                                              repeats: true
             )
         }
+    }
+    
+    private func isCollisionOccuredBetweenStartGameButtonAndPistol(nodeA: SCNNode, nodeB: SCNNode) -> Bool {
+        return (nodeA.name == "pistol" && nodeB.name == "startGameButton") || (nodeB.name == "pistol" && nodeA.name == "startGameButton")
     }
     
     private func isCollisionOccuredBetweenPlayerAndTaimeisan(nodeA: SCNNode, nodeB: SCNNode) -> Bool {
@@ -478,15 +477,50 @@ class GameViewController: UIViewController {
     private func addPistolForRemoCon() {
         let pistolScene = SCNScene(named: "Art.scnassets/Weapon/RemoConPistol/remoConPistol.scn")!
         remoConPistolParentNode = pistolScene.rootNode.childNode(withName: "pistolParent", recursively: false)!
+        let pistolGeometry = remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.geometry!
+        let pistolScale = remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.scale ?? SCNVector3()
+        let pistolShape = SCNPhysicsShape(geometry: pistolGeometry!, options: [SCNPhysicsShape.Option.scale: pistolScale])
+        remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.physicsBody = SCNPhysicsBody(type: .kinematic, shape: pistolShape)
+        remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.physicsBody?.isAffectedByGravity = false
         sceneView.scene.rootNode.addChildNode(remoConPistolParentNode)
     }
     
     private func addStartGameButtonNode() {
         let startGameButtonNodeScene = SCNScene(named: "Art.scnassets/StartGameButton.scn")!
         startGameButtonNode = startGameButtonNodeScene.rootNode.childNode(withName: "startGameButton", recursively: false)!
+        let geometry = startGameButtonNode.geometry!
+        let shape = SCNPhysicsShape(geometry: geometry, options: [SCNPhysicsShape.Option.scale: startGameButtonNode.scale])
+        startGameButtonNode.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
+        startGameButtonNode.physicsBody?.isAffectedByGravity = false
+        startGameButtonNode.physicsBody?.contactTestBitMask = 1
         let cameraPosition = sceneView.pointOfView?.position ?? SCNVector3()
         startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.2, z: cameraPosition.z - 0.2)
         sceneView.scene.rootNode.addChildNode(startGameButtonNode)
+    }
+    
+    func highlightNodes(node: SCNNode) {
+        // get its material
+        guard let material = node.geometry?.firstMaterial else {
+            return
+        }
+        
+        // highlight it
+        SCNTransaction.begin()
+        SCNTransaction.animationDuration = 0.5
+        
+        // on completion - unhighlight
+        SCNTransaction.completionBlock = {
+            SCNTransaction.begin()
+            SCNTransaction.animationDuration = 0.5
+            
+            material.emission.contents = SCNColor.black
+            
+            SCNTransaction.commit()
+        }
+        
+        material.emission.contents = SCNColor.red
+        
+        SCNTransaction.commit()
     }
     
     //プレイヤーへの攻撃当たり判定用Nodeを設置＆セットアップ
@@ -591,8 +625,6 @@ extension GameViewController: ARSCNViewDelegate {
                 cameraSphere.position = sceneView.pointOfView!.position
             }
         case .remoCon:
-            //現在表示中の武器をラップしている空のオブジェクトを常にカメラと同じPositionに移動させ続ける
-//            keepWeaponInFPSPosition()
             guard let camera = sceneView.pointOfView else {
                 return
             }
@@ -622,7 +654,13 @@ extension GameViewController: ARSessionDelegate {
 extension GameViewController: SCNPhysicsContactDelegate {
     //MARK: - 衝突検知時に呼ばれる
     //MEMO: - このメソッド内でUIの更新を行いたい場合はmainThreadで行う
-    func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
+    func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {        
+        if isCollisionOccuredBetweenStartGameButtonAndPistol(nodeA: contact.nodeA,
+                                                     nodeB: contact.nodeB) {
+            highlightNodes(node: startGameButtonNode)
+            AudioUtil.playSound(of: .kirakiraSelect)
+        }
+        
         if isCollisionOccuredBetweenPlayerAndTaimeisan(nodeA: contact.nodeA,
                                                      nodeB: contact.nodeB) {
             handleAttackToTaimeisan(nodeA: contact.nodeA, nodeB: contact.nodeB)
