@@ -309,24 +309,32 @@ class GameViewController: UIViewController {
     private func shootPlayerBullet() {
         //メモリ節約のため、オリジナルをクローンして使う
         let clonedBulletNode = originalBulletNode.clone()
-        let startPosition = SceneNodeUtil.getCameraPosition(sceneView)
+//        let startPosition = SceneNodeUtil.getCameraPosition(sceneView)
+//        clonedBulletNode.position = startPosition
+//        sceneView.scene.rootNode.addChildNode(clonedBulletNode)
+//        
+//        guard let camera = sceneView.pointOfView else { return }
+//        let targetPosCamera = SCNVector3(x: camera.position.x, y: camera.position.y, z: camera.position.z - 10)
+//        //カメラ座標をワールド座標に変換
+//        let target = camera.convertPosition(targetPosCamera, to: nil)
+        
+        let startPosition = remoConPistolParentNode.position
         clonedBulletNode.position = startPosition
         sceneView.scene.rootNode.addChildNode(clonedBulletNode)
         
-        guard let camera = sceneView.pointOfView else { return }
-        let targetPosCamera = SCNVector3(x: camera.position.x, y: camera.position.y, z: camera.position.z - 10)
+        let localTargetPosition = SCNVector3(x: remoConPistolParentNode.position.x, y: remoConPistolParentNode.position.y - 10, z: remoConPistolParentNode.position.z)
         //カメラ座標をワールド座標に変換
-        let target = camera.convertPosition(targetPosCamera, to: nil)
+        let worldTargetPosition = remoConPistolParentNode.convertPosition(localTargetPosition, to: nil)
         
         clonedBulletNode.runAction(
-            SCNAction.move(to: target, duration: TimeInterval(1)), completionHandler: {
+            SCNAction.move(to: worldTargetPosition, duration: TimeInterval(1)), completionHandler: {
                 clonedBulletNode.removeFromParentNode()
             }
         )
         
         // 他のデバイスに通知
         let startPositionEntity = SceneNodeUtil.createVector3Entity(from: startPosition)
-        let targetPositionEntity = SceneNodeUtil.createVector3Entity(from: target)
+        let targetPositionEntity = SceneNodeUtil.createVector3Entity(from: worldTargetPosition)
         let event = SceneActionEvent(
             type: .playerBulletShot,
             nodes: [],
