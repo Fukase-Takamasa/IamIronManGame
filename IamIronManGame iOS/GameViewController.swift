@@ -75,25 +75,6 @@ class GameViewController: UIViewController {
                 self.fireWeapon()
             }).disposed(by: disposeBag)
 
-//        BeerKit.onEvent("worldMap") { (peerId, data) in
-//            if DeviceTypeHolder.shared.type == .main { return }
-//            guard let data = data else { return }
-//            guard let unarchived = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [ARWorldMap.classForKeyedUnarchiver()], from: data),
-//                  let worldMap = unarchived as? ARWorldMap else {
-//                return
-//            }
-//            // Run the session with the received world map.
-//            let configuration = ARWorldTrackingConfiguration()
-//            configuration.planeDetection = .horizontal
-//            configuration.initialWorldMap = worldMap
-//            // 環境マッピングを有効にする
-//            configuration.environmentTexturing = .automatic
-//            if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
-//                configuration.frameSemantics = .personSegmentationWithDepth
-//            }
-//            self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-//        }
-        
         BeerKit.onEvent("remoConInfoInMap") { peerID, data in
             guard let data = data else { return }
             do {
@@ -119,28 +100,27 @@ class GameViewController: UIViewController {
         }
         
         //MARK: - other
-        //各武器をセットアップ
-//        pistolParentNode = setupWeaponNode(type: .pistol)
         originalBulletNode = createOriginalBulletNode()
         
         switch DeviceTypeHolder.shared.type {
         case .main:
-//            startGame()
             addSceneView()
             addPistolForRemoCon()
             remoConBaseView.isHidden = true
             addStartGameButtonNode()
             // 他のデバイスに通知
-            let event = SceneActionEvent(type: .initialNodesShowed, nodes: [
-                GameSceneNode(type: .pistol,
-                              name: remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.name ?? "",
-                              position: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.position),
-                              angle: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.eulerAngles)),
-                GameSceneNode(type: .startGameButton,
-                              name: startGameButtonNode.name ?? "",
-                              position: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.position),
-                              angle: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.eulerAngles)),
-            ])
+            let event = SceneActionEvent(
+                type: .initialNodesShowed,
+                nodes: [
+                    GameSceneNode(type: .pistol,
+                                  name: remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.name ?? "",
+                                  position: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.position),
+                                  angle: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.eulerAngles)),
+                    GameSceneNode(type: .startGameButton,
+                                  name: startGameButtonNode.name ?? "",
+                                  position: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.position),
+                                  angle: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.eulerAngles)),
+                ])
             let data = try! JSONEncoder().encode(event)
             BeerKit.sendEvent("sceneActionEvent", data: data)
             
@@ -152,8 +132,6 @@ class GameViewController: UIViewController {
         case .camera:
             addSceneView()
             gameBaseView.isHidden = true
-//            remoConBaseView.isHidden = true
-
         }
         
         backToTopPageButton.rx.tap
@@ -191,9 +169,7 @@ class GameViewController: UIViewController {
         }
         sceneView.frame = CGRect(x: 0, y: 0, width: width, height: self.view.frame.size.height)
         view.insertSubview(sceneView, at: 0)
-        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self
-//                                            ,arSessionDelegate: self
-        )
+        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self)
     }
     
     private func handleReceivedSceneActionEvent(_ event: SceneActionEvent) {
@@ -263,56 +239,17 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
-//    private func sendWorldMapToOtherDevices() {
-//        sceneView
-//            .session
-//            .getCurrentWorldMap { worldMap, error in
-//                guard let map = worldMap else {
-//                    return
-//                }
-//                guard let data = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true) else {
-//                    fatalError("can't encode map")
-//                }
-//                BeerKit.sendEvent("worldMap", data: data)
-//            }
-//    }
-    
-    //指定された武器を表示
-//    func showWeapon(_ type: WeaponType) {
-//        currentWeapon = type
-//        switchWeapon()
-//    }
-    
+
     //現在選択中の武器の発砲に関わるアニメーション処理などを実行
     func fireWeapon() {
         shootPlayerBullet()
         pistolNode().runAction(SceneAnimationUtil.shootingMotion())
     }
 
-    private func setupWeaponNode(type: WeaponType) -> SCNNode {
-        let weaponParentNode = SceneNodeUtil.loadScnFile(of: GameConst.getWeaponScnAssetsPath(type), nodeName: "\(type.name)Parent")
-//        SceneNodeUtil.addBillboardConstraint(weaponParentNode)
-//        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
-        return weaponParentNode
-    }
-    
     private func pistolNode() -> SCNNode {
-//        return pistolParentNode.childNode(withName: WeaponType.pistol.name, recursively: false) ?? SCNNode()
         return remoConPistolParentNode.childNode(withName: WeaponType.pistol.name, recursively: false) ?? SCNNode()
     }
     
-//    private func switchWeapon() {
-//        SceneNodeUtil.removeOtherWeapon(except: currentWeapon, scnView: sceneView)
-//        switch currentWeapon {
-//        case .pistol:
-//            sceneView.scene.rootNode.addChildNode(pistolParentNode)
-//            pistolNode().runAction(SceneAnimationUtil.gunnerShakeAnimationNormal())
-//        case .bazooka:
-//            break
-//        }
-//    }
-
     private func createOriginalBulletNode() -> SCNNode {
         let sphere: SCNGeometry = SCNSphere(radius: 0.05)
         let customYellow = UIColor(red: 253/255, green: 202/255, blue: 119/255, alpha: 1)
@@ -541,16 +478,10 @@ class GameViewController: UIViewController {
     
     private func playerKnockedDown() {
         isPlayerKnockedDown = true
-        
-        // アクアNodeにノックアウトアニメーション＆完了後の処理
-//        knockedDownAnimation(to: sceneView.scene.rootNode.childNode(withName: "ChihuahuaParent", recursively: false)!) {
-//            print("aquaDowned")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                // コンティニュー選択画面を表示
-                self.transitToContinueVC()
-            }
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            // コンティニュー選択画面を表示
+            self.transitToContinueVC()
+        }
     }
     
     private func taimeisanKnockedDown() {
@@ -590,11 +521,11 @@ class GameViewController: UIViewController {
     }
 
     private func transitToContinueVC() {
-//        self.present(ContinueViewController.instantiate(), animated: true)
+        self.present(ContinueViewController.instantiate(), animated: true)
     }
     
     private func transitToEndingVC() {
-//        self.present(EndingViewController.instantiate(), animated: false)
+        self.present(EndingViewController.instantiate(), animated: false)
     }
     
     private func shootTaimeiBullet(index: Int) {
@@ -631,11 +562,8 @@ class GameViewController: UIViewController {
         taimeisan.physicsBody?.contactTestBitMask = 1
         //particleの操作　最初はbirthRate=0にしておく
         taimeisan.childNode(withName: "darkAuraParticle", recursively: false)!.particleSystems!.first!.birthRate = 0
-
-//        let cameraPos = sceneView.pointOfView?.position ?? SCNVector3()
-//        taimeisan.position = SCNVector3(x: cameraPos.x, y: cameraPos.y, z: cameraPos.z - 1.5)
         taimeisan.position = position
-        
+
         if let angle = angle {
             taimeisan.eulerAngles = angle
             
@@ -860,22 +788,6 @@ extension GameViewController: ARSCNViewDelegate {
         }
     }
 }
-
-//extension GameViewController: ARSessionDelegate {
-//    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-//        if DeviceTypeHolder.shared.type == .main {
-//            switch frame.worldMappingStatus {
-//            case .extending, .mapped:
-//                if isWorldMapSent { return }
-//                print("十分にマップされたのでイベント送信で他のデバイスに共有する")
-//                sendWorldMapToOtherDevices()
-//                isWorldMapSent = true
-//            default:
-//                break
-//            }
-//        }
-//    }
-//}
 
 extension GameViewController: SCNPhysicsContactDelegate {
     //MARK: - 衝突検知時に呼ばれる
