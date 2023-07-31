@@ -206,21 +206,42 @@
                                     <constraint firstItem="Pfe-ce-akv" firstAttribute="leading" secondItem="oqh-9M-mgg" secondAttribute="leading" constant="75" id="nVY-B8-5uw"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efn-As-f18">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJK-lv-RXl">
+                                        <rect key="frame" x="748" y="45" width="109" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="TOPへ戻る"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fJK-lv-RXl" secondAttribute="trailing" constant="39" id="QwU-xe-9Hq"/>
+                                    <constraint firstItem="fJK-lv-RXl" firstAttribute="top" secondItem="efn-As-f18" secondAttribute="top" constant="45" id="eYe-G1-iYH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oc2-y6-gKr"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="efn-As-f18" secondAttribute="bottom" id="8C1-GJ-QFq"/>
                             <constraint firstAttribute="bottom" secondItem="oqh-9M-mgg" secondAttribute="bottom" id="Mzr-at-O5Z"/>
                             <constraint firstItem="oqh-9M-mgg" firstAttribute="leading" secondItem="nlc-4y-E7T" secondAttribute="leading" id="NwJ-h6-woV"/>
+                            <constraint firstItem="efn-As-f18" firstAttribute="top" secondItem="oc2-y6-gKr" secondAttribute="top" id="RiY-r6-rTx"/>
                             <constraint firstItem="oqh-9M-mgg" firstAttribute="width" secondItem="nlc-4y-E7T" secondAttribute="width" multiplier="0.5" id="TnE-aI-bVc"/>
                             <constraint firstItem="oqh-9M-mgg" firstAttribute="top" secondItem="oc2-y6-gKr" secondAttribute="top" id="bht-Ug-WXW"/>
+                            <constraint firstAttribute="trailing" secondItem="efn-As-f18" secondAttribute="trailing" id="cCE-fS-H2B"/>
+                            <constraint firstItem="efn-As-f18" firstAttribute="leading" secondItem="nlc-4y-E7T" secondAttribute="leading" id="uE8-Oe-sBU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gMq-QZ-WE0"/>
                     <connections>
+                        <outlet property="backToTopPageButton" destination="fJK-lv-RXl" id="qeX-kC-zjF"/>
                         <outlet property="bulletsCountImageView" destination="fAS-2G-FjW" id="1vZ-xw-KPh"/>
+                        <outlet property="gameBaseView" destination="oqh-9M-mgg" id="CAk-B1-gB1"/>
                         <outlet property="koImage" destination="GtN-1d-HP1" id="kvy-NC-fOi"/>
                         <outlet property="playerLifeBar" destination="ATU-00-nw8" id="ZuF-QP-kHr"/>
+                        <outlet property="remoConBaseView" destination="efn-As-f18" id="X9B-a7-3ph"/>
                         <outlet property="taimeisanLifeBar" destination="Pfe-ce-akv" id="79a-vh-jzu"/>
                     </connections>
                 </viewController>
@@ -234,7 +255,7 @@
         <image name="ko_icon" width="1024" height="576"/>
         <image name="taimeisan_icon" width="499" height="499"/>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

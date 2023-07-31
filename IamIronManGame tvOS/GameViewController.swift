@@ -41,7 +41,9 @@ class GameViewController: UIViewController {
     }
     
     @objc
+    @IBOutlet weak var backToTopPageButton: UIButton!
     func handleTap(_ gestureRecognizer: UIGestureRecognizer) {
+        @IBOutlet weak var backToTopPageButton: UIButton!
         // Highlight the tapped nodes
         let p = gestureRecognizer.location(in: gameView)
 //        gameController.highlightNodes(atPoint: p)

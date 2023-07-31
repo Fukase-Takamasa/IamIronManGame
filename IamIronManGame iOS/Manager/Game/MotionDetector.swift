@@ -73,7 +73,7 @@ class MotionDetector {
         if !postBool
 //            && compositAcceleration >= 1.5
 //            && gyroZ < 10 {
-            && compositAcceleration >= 4 {
+            && compositAcceleration >= 3.5 {
             
             preBool = true
             
@@ -85,7 +85,7 @@ class MotionDetector {
         if postBool
 //            && compositAcceleration >= 1.5
 //            && gyroZ < 10 {
-            && compositAcceleration >= 4 {
+            && compositAcceleration >= 3.5 {
             
             postBool = false
             preBool = false

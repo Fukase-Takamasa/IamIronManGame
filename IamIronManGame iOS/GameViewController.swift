@@ -48,6 +48,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var playerLifeBar: GTProgressBar!
     @IBOutlet weak var koImage: UIImageView!
     
+    @IBOutlet weak var gameBaseView: UIView!
+    @IBOutlet weak var remoConBaseView: UIView!
+    @IBOutlet weak var backToTopPageButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,9 +101,11 @@ class GameViewController: UIViewController {
             }
         }
         
-        //MARK: - other
-        addSceneView()
+        BeerKit.onEvent("backToTopPage") { peerID, data in
+            self.dismiss(animated: true)
+        }
         
+        //MARK: - other
         //各武器をセットアップ
         pistolParentNode = setupWeaponNode(type: .pistol)
         originalBulletNode = createOriginalBulletNode()
@@ -107,15 +113,31 @@ class GameViewController: UIViewController {
         switch DeviceTypeHolder.shared.type {
         case .main:
 //            startGame()
+            addSceneView()
             addPistolForRemoCon()
+            remoConBaseView.isHidden = true
+            addStartGameButtonNode()
             break
         case .remoCon:
-            break
+            gameBaseView.isHidden = true
+            remoConBaseView.isHidden = false
+            addSceneView()
+            self.sceneView.isHidden = true
         case .camera:
             break
         }
         
-        addStartGameButtonNode()
+        backToTopPageButton.rx.tap
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else { return }
+                let alert = UIAlertController(title: "TOP画面に戻ります。", message: "Peer接続されたすべての端末をTOP画面に戻します。", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    BeerKit.sendEvent("backToTopPage")
+                    self.dismiss(animated: true)
+                }))
+                self.present(alert, animated: true)
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -279,7 +301,7 @@ class GameViewController: UIViewController {
         // 連続攻撃を制御（1.6秒の間に3回まで)
         if damageLimitCount <= 0 { return }
         
-        var damege = 2.0
+        var damege = 5.0
 //        if chihuahua.childNode(withName: "aquaMoveFire", recursively: false) != nil {
 //            print("aquaMove発動中なので攻撃力を3倍にします")
 //            damege *= 3
@@ -497,7 +519,7 @@ class GameViewController: UIViewController {
         startGameButtonNode.physicsBody?.isAffectedByGravity = false
         startGameButtonNode.physicsBody?.contactTestBitMask = 1
         let cameraPosition = sceneView.pointOfView?.position ?? SCNVector3()
-        startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.2, z: cameraPosition.z - 0.2)
+        startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.4, z: cameraPosition.z - 0.2)
         sceneView.scene.rootNode.addChildNode(startGameButtonNode)
     }
     
