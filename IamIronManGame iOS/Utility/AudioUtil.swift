@@ -47,8 +47,6 @@ extension AudioUtil {
                 
                 AudioUtil.audioPlayers[sound] = audioPlayer
                 
-                print("音声追加成功")
-                
             } catch {
                 print("音声セットエラー: \(sound.rawValue)")
             }

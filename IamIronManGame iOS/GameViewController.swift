@@ -38,6 +38,7 @@ class GameViewController: UIViewController {
     private var isTaimeisanKnockedDown = false
     private var isPlayerKnockedDown = false
     private var isWorldMapSent = false
+    private var isButtonHighliting = false
     
     // - notification
     private let _targetHit = PublishRelay<Void>()
@@ -106,7 +107,6 @@ class GameViewController: UIViewController {
         switch DeviceTypeHolder.shared.type {
         case .main:
 //            startGame()
-//            showWeapon(.pistol)
             addPistolForRemoCon()
             break
         case .remoCon:
@@ -477,11 +477,14 @@ class GameViewController: UIViewController {
     private func addPistolForRemoCon() {
         let pistolScene = SCNScene(named: "Art.scnassets/Weapon/RemoConPistol/remoConPistol.scn")!
         remoConPistolParentNode = pistolScene.rootNode.childNode(withName: "pistolParent", recursively: false)!
-        let pistolGeometry = remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.geometry!
-        let pistolScale = remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.scale ?? SCNVector3()
-        let pistolShape = SCNPhysicsShape(geometry: pistolGeometry!, options: [SCNPhysicsShape.Option.scale: pistolScale])
-        remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.physicsBody = SCNPhysicsBody(type: .kinematic, shape: pistolShape)
-        remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.physicsBody?.isAffectedByGravity = false
+        let pistolNode = remoConPistolParentNode.childNode(withName: "pistol", recursively: false) ?? SCNNode()
+        let pistolGeometry = pistolNode.geometry ?? SCNGeometry()
+        let pistolScale = pistolNode.scale
+        let pistolShape = SCNPhysicsShape(
+            geometry: pistolGeometry,
+            options: [SCNPhysicsShape.Option.scale: pistolScale])
+        pistolNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: pistolShape)
+        pistolNode.physicsBody?.isAffectedByGravity = false
         sceneView.scene.rootNode.addChildNode(remoConPistolParentNode)
     }
     
@@ -503,10 +506,16 @@ class GameViewController: UIViewController {
         guard let material = node.geometry?.firstMaterial else {
             return
         }
+        if isButtonHighliting { return }
         
         // highlight it
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 0.5
+        isButtonHighliting = true
+        AudioUtil.playSound(of: .kirakiraSelect)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.isButtonHighliting = false
+        })
         
         // on completion - unhighlight
         SCNTransaction.completionBlock = {
@@ -654,11 +663,10 @@ extension GameViewController: ARSessionDelegate {
 extension GameViewController: SCNPhysicsContactDelegate {
     //MARK: - 衝突検知時に呼ばれる
     //MEMO: - このメソッド内でUIの更新を行いたい場合はmainThreadで行う
-    func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {        
+    func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
         if isCollisionOccuredBetweenStartGameButtonAndPistol(nodeA: contact.nodeA,
                                                      nodeB: contact.nodeB) {
             highlightNodes(node: startGameButtonNode)
-            AudioUtil.playSound(of: .kirakiraSelect)
         }
         
         if isCollisionOccuredBetweenPlayerAndTaimeisan(nodeA: contact.nodeA,
