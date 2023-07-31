@@ -424,7 +424,7 @@ class GameViewController: UIViewController {
         // 連続攻撃を制御（1.6秒の間に3回まで)
         if damageLimitCount <= 0 { return }
         
-        var damege = 5.0
+        var damege = 10.0
 //        if chihuahua.childNode(withName: "aquaMoveFire", recursively: false) != nil {
 //            print("aquaMove発動中なので攻撃力を3倍にします")
 //            damege *= 3
