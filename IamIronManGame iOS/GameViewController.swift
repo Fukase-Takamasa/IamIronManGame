@@ -21,7 +21,6 @@ class GameViewController: UIViewController {
     
     // - node
     private var originalBulletNode = SCNNode()
-//    private var pistolParentNode = SCNNode()
     private var taimeisan = SCNNode()
     private var taimeiBulletNode: SCNNode?
     private var remoConPistolParentNode = SCNNode()
@@ -76,24 +75,24 @@ class GameViewController: UIViewController {
                 self.fireWeapon()
             }).disposed(by: disposeBag)
 
-        BeerKit.onEvent("worldMap") { (peerId, data) in
-            if DeviceTypeHolder.shared.type == .main { return }
-            guard let data = data else { return }
-            guard let unarchived = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [ARWorldMap.classForKeyedUnarchiver()], from: data),
-                  let worldMap = unarchived as? ARWorldMap else {
-                return
-            }
-            // Run the session with the received world map.
-            let configuration = ARWorldTrackingConfiguration()
-            configuration.planeDetection = .horizontal
-            configuration.initialWorldMap = worldMap
-            // 環境マッピングを有効にする
-            configuration.environmentTexturing = .automatic
-            if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
-                configuration.frameSemantics = .personSegmentationWithDepth
-            }
-            self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        }
+//        BeerKit.onEvent("worldMap") { (peerId, data) in
+//            if DeviceTypeHolder.shared.type == .main { return }
+//            guard let data = data else { return }
+//            guard let unarchived = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [ARWorldMap.classForKeyedUnarchiver()], from: data),
+//                  let worldMap = unarchived as? ARWorldMap else {
+//                return
+//            }
+//            // Run the session with the received world map.
+//            let configuration = ARWorldTrackingConfiguration()
+//            configuration.planeDetection = .horizontal
+//            configuration.initialWorldMap = worldMap
+//            // 環境マッピングを有効にする
+//            configuration.environmentTexturing = .automatic
+//            if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
+//                configuration.frameSemantics = .personSegmentationWithDepth
+//            }
+//            self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+//        }
         
         BeerKit.onEvent("remoConInfoInMap") { peerID, data in
             guard let data = data else { return }
@@ -263,19 +262,19 @@ class GameViewController: UIViewController {
         }
     }
     
-    private func sendWorldMapToOtherDevices() {
-        sceneView
-            .session
-            .getCurrentWorldMap { worldMap, error in
-                guard let map = worldMap else {
-                    return
-                }
-                guard let data = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true) else {
-                    fatalError("can't encode map")
-                }
-                BeerKit.sendEvent("worldMap", data: data)
-            }
-    }
+//    private func sendWorldMapToOtherDevices() {
+//        sceneView
+//            .session
+//            .getCurrentWorldMap { worldMap, error in
+//                guard let map = worldMap else {
+//                    return
+//                }
+//                guard let data = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true) else {
+//                    fatalError("can't encode map")
+//                }
+//                BeerKit.sendEvent("worldMap", data: data)
+//            }
+//    }
     
     //指定された武器を表示
 //    func showWeapon(_ type: WeaponType) {
@@ -860,21 +859,21 @@ extension GameViewController: ARSCNViewDelegate {
     }
 }
 
-extension GameViewController: ARSessionDelegate {
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        if DeviceTypeHolder.shared.type == .main {
-            switch frame.worldMappingStatus {
-            case .extending, .mapped:
-                if isWorldMapSent { return }
-                print("十分にマップされたのでイベント送信で他のデバイスに共有する")
-                sendWorldMapToOtherDevices()
-                isWorldMapSent = true
-            default:
-                break
-            }
-        }
-    }
-}
+//extension GameViewController: ARSessionDelegate {
+//    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+//        if DeviceTypeHolder.shared.type == .main {
+//            switch frame.worldMappingStatus {
+//            case .extending, .mapped:
+//                if isWorldMapSent { return }
+//                print("十分にマップされたのでイベント送信で他のデバイスに共有する")
+//                sendWorldMapToOtherDevices()
+//                isWorldMapSent = true
+//            default:
+//                break
+//            }
+//        }
+//    }
+//}
 
 extension GameViewController: SCNPhysicsContactDelegate {
     //MARK: - 衝突検知時に呼ばれる
