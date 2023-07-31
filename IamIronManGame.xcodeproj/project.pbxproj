@@ -33,6 +33,8 @@
 		8678D03B2A76AD2A0026A241 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678D03A2A76AD2A0026A241 /* LabelNode.swift */; };
 		867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */; };
 		8696BD9C2A776EBB004F9068 /* SceneActionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */; };
+		8696BD9F2A77DDC1004F9068 /* ContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696BD9D2A77DDC1004F9068 /* ContinueViewController.swift */; };
+		8696BDA02A77DDC1004F9068 /* ContinueViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8696BD9E2A77DDC1004F9068 /* ContinueViewController.storyboard */; };
 		86C40BC02A7540070040189E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BBF2A7540070040189E /* TopViewController.swift */; };
 		86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40BC12A7540130040189E /* TopViewController.storyboard */; };
 		86C40BE42A75438E0040189E /* GameConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BC42A75438E0040189E /* GameConst.swift */; };
@@ -139,6 +141,8 @@
 		8678D03A2A76AD2A0026A241 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		867DF8972A729C3C004846C6 /* SceneViewSettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewSettingUtil.swift; sourceTree = "<group>"; };
 		8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneActionEvent.swift; sourceTree = "<group>"; };
+		8696BD9D2A77DDC1004F9068 /* ContinueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueViewController.swift; sourceTree = "<group>"; };
+		8696BD9E2A77DDC1004F9068 /* ContinueViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContinueViewController.storyboard; sourceTree = "<group>"; };
 		86C40BBF2A7540070040189E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		86C40BC12A7540130040189E /* TopViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopViewController.storyboard; sourceTree = "<group>"; };
 		86C40BC42A75438E0040189E /* GameConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConst.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				86C40BC12A7540130040189E /* TopViewController.storyboard */,
 				86C40C012A7544C60040189E /* GameViewController.swift */,
 				86C40C172A7547930040189E /* GameViewController.storyboard */,
+				8696BD9D2A77DDC1004F9068 /* ContinueViewController.swift */,
+				8696BD9E2A77DDC1004F9068 /* ContinueViewController.storyboard */,
 				864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */,
 			);
 			path = "IamIronManGame iOS";
@@ -629,6 +635,7 @@
 				86C40C652A754C300040189E /* pesin.mp3 in Resources */,
 				86C40C752A754C300040189E /* guaaa.mp3 in Resources */,
 				864C87942A554D9900EFC5C3 /* LaunchScreen.storyboard in Resources */,
+				8696BDA02A77DDC1004F9068 /* ContinueViewController.storyboard in Resources */,
 				86C40C692A754C300040189E /* serifu1.mp3 in Resources */,
 				86C40C352A754BB00040189E /* rankingAppear.mp3 in Resources */,
 				86C40C2F2A754BB00040189E /* bazookaHit_small2.mp3 in Resources */,
@@ -820,6 +827,7 @@
 				8678D0382A7652360026A241 /* RemoConInfoInMap.swift in Sources */,
 				86C40BF02A75438E0040189E /* UIScrollView+Extension.swift in Sources */,
 				86C40BC02A7540070040189E /* TopViewController.swift in Sources */,
+				8696BD9F2A77DDC1004F9068 /* ContinueViewController.swift in Sources */,
 				8678D03B2A76AD2A0026A241 /* LabelNode.swift in Sources */,
 				86C40C812A754CB80040189E /* NotificationModel.swift in Sources */,
 				86C40BF82A75438E0040189E /* SceneAnimationUtil.swift in Sources */,

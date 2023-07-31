@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TaimeisanPausingType: String {
+enum TaimeisanPausingType: String, Codable {
     case standing = "standing"
     case shooting = "shooting"
     

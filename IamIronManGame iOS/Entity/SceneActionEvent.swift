@@ -10,10 +10,8 @@ import SceneKit
 
 enum SceneActionEventType: Codable {
     case initialNodesShowed
-//    case taimeiMoved
     case taimeiImageChanged
     case taimeiBulletShot
-//    case pistolPositionAndAngle
     case playerBulletShot
     case nodesUpdated
     case startButtonTapped
@@ -24,6 +22,7 @@ struct SceneActionEvent: Codable {
     let type: SceneActionEventType
     let nodes: [GameSceneNode]
     var bulletShootingAction: BulletShootingAction?
+    var taimeisanPausingType: TaimeisanPausingType?
 }
 
 enum GameSceneNodeType: Codable {

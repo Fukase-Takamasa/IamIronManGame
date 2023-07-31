@@ -38,7 +38,7 @@ class GameViewController: UIViewController {
     private var isPlayerKnockedDown = false
     private var isWorldMapSent = false
     private var isButtonHighliting = false
-    
+        
     // - notification
     private let _targetHit = PublishRelay<Void>()
     
@@ -72,6 +72,7 @@ class GameViewController: UIViewController {
         viewModel.weaponFired
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else {return}
+                if DeviceTypeHolder.shared.type != .main { return }
                 self.fireWeapon()
             }).disposed(by: disposeBag)
 
@@ -124,6 +125,8 @@ class GameViewController: UIViewController {
             let data = try! JSONEncoder().encode(event)
             BeerKit.sendEvent("sceneActionEvent", data: data)
             
+            transitToContinueVC()
+            
         case .remoCon:
             gameBaseView.isHidden = true
             remoConBaseView.isHidden = false
@@ -172,6 +175,36 @@ class GameViewController: UIViewController {
         SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self)
     }
     
+    private func resetGame() {
+        let vmInput = GameViewModel
+            .Input(targetHit: _targetHit.asObservable())
+        
+        let vmDependency = GameViewModel
+            .Dependency(motionDetector: MotionDetector(),
+                        currentWeapon: CurrentWeapon(type: .pistol))
+        
+        viewModel = GameViewModel(input: vmInput, dependency: vmDependency)
+        
+        AudioUtil.initAudioPlayers()
+        taimeisanActionTimer.invalidate()
+        taimeisan.removeFromParentNode()
+        sceneView.scene.rootNode.childNodes.forEach { node in
+            if (node.name ?? "").contains("taimei") {
+                node.removeFromParentNode()
+            }
+        }
+        damageLimitCount = 3
+        taimeisanPausingType = .standing
+        taimeisanLifePoint = 100.0
+        playerLifePoint = 100.0
+        isTaimeisanKnockedDown = false
+        isPlayerKnockedDown = false
+        taimeisanLifeBar.animateTo(progress: taimeisanLifePoint)
+        playerLifeBar.animateTo(progress: playerLifePoint)
+        
+        startGame()
+    }
+    
     private func handleReceivedSceneActionEvent(_ event: SceneActionEvent) {
         switch event.type {
         case .initialNodesShowed:
@@ -192,7 +225,9 @@ class GameViewController: UIViewController {
                 }
             }
         case .taimeiImageChanged:
-            break
+            guard let taimeisanPausingType = event.taimeisanPausingType else { return }
+            changeTaimeisanImage(to: taimeisanPausingType)
+            
         case .taimeiBulletShot:
             guard let actionInfo = event.bulletShootingAction else { return }
             let startPosition = SceneNodeUtil.createSceneVector3(from: actionInfo.startPosition)
@@ -233,6 +268,9 @@ class GameViewController: UIViewController {
                 case .taimei:
                     addTaimeisan(position: SceneNodeUtil.createSceneVector3(from: node.position),
                                  angle: SceneNodeUtil.createSceneVector3(from: node.angle))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.showDarkAuraParticle()
+                    }
                 default:
                     break
                 }
@@ -271,23 +309,30 @@ class GameViewController: UIViewController {
     private func shootPlayerBullet() {
         //メモリ節約のため、オリジナルをクローンして使う
         let clonedBulletNode = originalBulletNode.clone()
-        clonedBulletNode.position = SceneNodeUtil.getCameraPosition(sceneView)
+        let startPosition = SceneNodeUtil.getCameraPosition(sceneView)
+        clonedBulletNode.position = startPosition
         sceneView.scene.rootNode.addChildNode(clonedBulletNode)
+        
+        guard let camera = sceneView.pointOfView else { return }
+        let targetPosCamera = SCNVector3(x: camera.position.x, y: camera.position.y, z: camera.position.z - 10)
+        //カメラ座標をワールド座標に変換
+        let target = camera.convertPosition(targetPosCamera, to: nil)
+        
         clonedBulletNode.runAction(
-            SceneAnimationUtil.shootBulletToCenterOfCamera(sceneView.pointOfView), completionHandler: {
+            SCNAction.move(to: target, duration: TimeInterval(1)), completionHandler: {
                 clonedBulletNode.removeFromParentNode()
             }
         )
         
         // 他のデバイスに通知
-        let startPosition = SceneNodeUtil.createVector3Entity(from: SceneNodeUtil.getCameraPosition(sceneView))
-        let targetPosition = Vector3Entity(x: startPosition.x, y: startPosition.x, z: startPosition.z - 10)
+        let startPositionEntity = SceneNodeUtil.createVector3Entity(from: startPosition)
+        let targetPositionEntity = SceneNodeUtil.createVector3Entity(from: target)
         let event = SceneActionEvent(
             type: .playerBulletShot,
             nodes: [],
             bulletShootingAction: .init(
-                startPosition: startPosition,
-                targetPosition: targetPosition,
+                startPosition: startPositionEntity,
+                targetPosition: targetPositionEntity,
                 duration: TimeInterval(1))
         )
         let data = try! JSONEncoder().encode(event)
@@ -468,6 +513,15 @@ class GameViewController: UIViewController {
         let geometry = taimeisan.geometry
         geometry?.firstMaterial?.diffuse.contents = UIImage(named: "taimeisan_\(type.rawValue).png")
         taimeisan.geometry = geometry!
+        
+        // 他のデバイスに通知
+        let event = SceneActionEvent(
+            type: .taimeiImageChanged,
+            nodes: [],
+            taimeisanPausingType: type
+        )
+        let data = try! JSONEncoder().encode(event)
+        BeerKit.sendEvent("sceneActionEvent", data: data)
     }
     
     private func moveTaimeisanToRandomPosition() {
@@ -521,11 +575,14 @@ class GameViewController: UIViewController {
     }
 
     private func transitToContinueVC() {
-        self.present(ContinueViewController.instantiate(), animated: true)
+        let storyboard: UIStoryboard = UIStoryboard(name: "ContinueViewController", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ContinueViewController
+        vc.delegate = self
+        self.present(vc, animated: true)
     }
     
     private func transitToEndingVC() {
-        self.present(EndingViewController.instantiate(), animated: false)
+        
     }
     
     private func shootTaimeiBullet(index: Int) {
@@ -810,3 +867,16 @@ extension GameViewController: SCNPhysicsContactDelegate {
     }
 }
 
+extension GameViewController: ContinueVCDelegate {
+    func yesButtonTapped() {
+        resetGame()
+    }
+    
+    func noButtonTapped() {
+        taimeisanActionTimer.invalidate()
+        AudioUtil.initAudioPlayers()
+        sceneView.scene.rootNode.childNodes.forEach { node in
+            node.removeFromParentNode()
+        }
+    }
+}

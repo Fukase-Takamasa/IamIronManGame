@@ -68,12 +68,12 @@ class SceneAnimationUtil {
     }
     
     //弾を発射させる
-    static func shootBulletToCenterOfCamera(_ camera: SCNNode?) -> SCNAction {
-        guard let camera = camera else { return SCNAction()}
-        let targetPosCamera = SCNVector3(x: camera.position.x, y: camera.position.y, z: camera.position.z - 10)
-        //カメラ座標をワールド座標に変換
-        let target = camera.convertPosition(targetPosCamera, to: nil)
-        return SCNAction.move(to: target, duration: TimeInterval(1))
-    }
+//    static func shootBulletToCenterOfCamera(_ camera: SCNNode?) -> SCNAction {
+//        guard let camera = camera else { return SCNAction()}
+//        let targetPosCamera = SCNVector3(x: camera.position.x, y: camera.position.y, z: camera.position.z - 10)
+//        //カメラ座標をワールド座標に変換
+//        let target = camera.convertPosition(targetPosCamera, to: nil)
+//        return SCNAction.move(to: target, duration: TimeInterval(1))
+//    }
     
 }

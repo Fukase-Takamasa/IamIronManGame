@@ -32,18 +32,30 @@ class GameViewModel {
             .map({dependency.currentWeapon.weaponType.bulletsCountImage(at: $0)})
                 
         self.weaponFired = dependency.currentWeapon.fired
+        
+        var isContinueVCVisible = false
 
         dependency.motionDetector.firingMotionDetected
             .subscribe(onNext: { _ in
                 if DeviceTypeHolder.shared.type == .remoCon {
-                    BeerKit.sendEvent("fireWeapon")
+                    if isContinueVCVisible {
+                        BeerKit.sendEvent("yesContinue")
+                        print("vm yesContinue流した")
+                    }else {
+                        BeerKit.sendEvent("fireWeapon")
+                    }
                 }
             }).disposed(by: disposeBag)
         
         dependency.motionDetector.reloadingMotionDetected
             .subscribe(onNext: { _ in
                 if DeviceTypeHolder.shared.type == .remoCon {
-                    BeerKit.sendEvent("reloadWeapon")
+                    if isContinueVCVisible {
+                        BeerKit.sendEvent("noContinue")
+                        print("vm noContinue流した")
+                    }else {
+                        BeerKit.sendEvent("reloadWeapon")
+                    }
                 }
             }).disposed(by: disposeBag)
 
@@ -63,5 +75,24 @@ class GameViewModel {
                 dependency.currentWeapon.reload()
             }
         }
+        
+        BeerKit.onEvent("isContinueVCVisible") { (peerId, data) in
+            guard let data = data else { return }
+            if DeviceTypeHolder.shared.type == .remoCon {
+                isContinueVCVisible = data.toBool() ?? false
+            }
+        }
+    }
+}
+
+extension Bool {
+    func toData() -> Data? {
+        return withUnsafeBytes(of: self) { Data($0) }
+    }
+}
+
+extension Data {
+    func toBool() -> Bool? {
+        return self.withUnsafeBytes { $0.load(as: Bool.self) }
     }
 }
