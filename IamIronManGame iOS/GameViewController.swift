@@ -191,7 +191,9 @@ class GameViewController: UIViewController {
         }
         sceneView.frame = CGRect(x: 0, y: 0, width: width, height: self.view.frame.size.height)
         view.insertSubview(sceneView, at: 0)
-        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self,arSessionDelegate: self)
+        SceneViewSettingUtil.setupSceneView(sceneView, sceneViewDelegate: self, physicContactDelegate: self
+//                                            ,arSessionDelegate: self
+        )
     }
     
     private func handleReceivedSceneActionEvent(_ event: SceneActionEvent) {
