@@ -87,6 +87,11 @@ class GameViewController: UIViewController {
             let configuration = ARWorldTrackingConfiguration()
             configuration.planeDetection = .horizontal
             configuration.initialWorldMap = worldMap
+            // 環境マッピングを有効にする
+            configuration.environmentTexturing = .automatic
+            if ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) {
+                configuration.frameSemantics = .personSegmentationWithDepth
+            }
             self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         }
         
@@ -193,17 +198,14 @@ class GameViewController: UIViewController {
     private func handleReceivedSceneActionEvent(_ event: SceneActionEvent) {
         switch event.type {
         case .initialNodesShowed:
-            print("initialNodesShowed")
             event.nodes.forEach { node in
                 switch node.type {
                 case .pistol:
-                    print("addPistolForRemoCon")
                     addPistolForRemoCon(
                         position: SceneNodeUtil.createSceneVector3(from: node.position),
                         angle: SceneNodeUtil.createSceneVector3(from: node.angle)
                     )
                 case .startGameButton:
-                    print("startGameButton")
                     addStartGameButtonNode(
                         position: SceneNodeUtil.createSceneVector3(from: node.position),
                         angle: SceneNodeUtil.createSceneVector3(from: node.angle)
@@ -215,17 +217,14 @@ class GameViewController: UIViewController {
         case .taimeiImageChanged:
             break
         case .taimeiBulletShot:
-            print("taimeiBulletShot")
             guard let actionInfo = event.bulletShootingAction else { return }
             let startPosition = SceneNodeUtil.createSceneVector3(from: actionInfo.startPosition)
             let targetPosition = SceneNodeUtil.createSceneVector3(from: actionInfo.targetPosition)
             
             addTaimeiBullet(index: 1, position: startPosition)
             animateTaimeiBullet(index: 1, position: targetPosition)
-            print("taimeiBulletShot最後")
 
         case .playerBulletShot:
-            print("playerBulletShot")
             guard let actionInfo = event.bulletShootingAction else { return }
             let startPosition = SceneNodeUtil.createSceneVector3(from: actionInfo.startPosition)
             let targetPosition = SceneNodeUtil.createSceneVector3(from: actionInfo.targetPosition)
@@ -238,7 +237,6 @@ class GameViewController: UIViewController {
             clonedBulletNode.runAction(shootingAction) {
                 clonedBulletNode.removeFromParentNode()
             }
-            print("playerBulletShot最後")
             
         case .nodesUpdated:
             event.nodes.forEach { node in
@@ -251,10 +249,8 @@ class GameViewController: UIViewController {
                 }
             }
         case .startButtonTapped:
-            print("startButtonTapped")
             highlightNodes(node: startGameButtonNode)
         case .gameStarted:
-            print("gameStarted")
             event.nodes.forEach { node in
                 switch node.type {
                 case .taimei:
