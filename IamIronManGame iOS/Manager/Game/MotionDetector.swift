@@ -108,12 +108,12 @@ class MotionDetector {
             
         }
         
-//        if gyroZcount == 20 {
-//            
-//            print("gyroZcountが20に達したのでターゲットを泰明さんに変えます")
-//            
-//            secretEvent?()
-//        }
+        if gyroZcount == 20 {
+            
+            print("gyroZcountが20に達したのでシークレットイベントを発動する通知を流します")
+            
+            secretEvent?()
+        }
 
     }
         

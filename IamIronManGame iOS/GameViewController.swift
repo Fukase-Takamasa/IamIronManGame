@@ -19,6 +19,8 @@ class GameViewController: UIViewController {
     
     var sceneView = ARSCNView()
     
+    var isQuickModeOn = false
+    
     // - node
     private var originalBulletNode = SCNNode()
     private var taimeisan = SCNNode()
@@ -40,8 +42,9 @@ class GameViewController: UIViewController {
     private var isWorldMapSent = false
     private var isButtonHighliting = false
     
-    var isSendRemoConInfo = false
-        
+//    var isSendRemoConInfo = false
+    let isSendRemoConInfo = BehaviorRelay<Bool>(value: false)
+
     // - notification
     private let _targetHit = PublishRelay<Void>()
     
@@ -62,13 +65,15 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.transitToEndingVC()
-        })
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+//            self.transitToEndingVC()
+//        })
         
         //MARK: - input
         let vmInput = GameViewModel
-            .Input(targetHit: _targetHit.asObservable())
+            .Input(targetHit: _targetHit.asObservable(),
+                   isSendRemoConInfo: isSendRemoConInfo
+            )
         
         let vmDependency = GameViewModel
             .Dependency(motionDetector: MotionDetector(),
@@ -112,27 +117,77 @@ class GameViewController: UIViewController {
             }
         }
         
+//        BeerKit.onEvent("increaseStepValue") { peerID, data in
+//            if DeviceTypeHolder.shared.type == .main {
+//                self.slideStepper.value = self.slideStepper.value + 1
+//            }
+//        }
+//        
+//        BeerKit.onEvent("decreaseStepValue") { peerID, data in
+//            if DeviceTypeHolder.shared.type == .main {
+//                self.slideStepper.value = self.slideStepper.value - 1
+//            }
+//        }
+        
         //MARK: - other
         originalBulletNode = createOriginalBulletNode()
         
-        switch DeviceTypeHolder.shared.type {
-        case .main:
-            addSceneView()
-            remoConBaseView.isHidden = false
-            addSlideBoardNode()
-            gameBaseView.isHidden = true
+        
+        if isQuickModeOn {
+            switch DeviceTypeHolder.shared.type {
+            case .main:
+                addSceneView()
+                addPistolForRemoCon()
+                remoConBaseView.isHidden = true
+                addStartGameButtonNode()
+                // 他のデバイスに通知
+                let event = SceneActionEvent(
+                    type: .initialNodesShowed,
+                    nodes: [
+                        GameSceneNode(type: .pistol,
+                                      name: remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.name ?? "",
+                                      position: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.position),
+                                      angle: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.eulerAngles)),
+                        GameSceneNode(type: .startGameButton,
+                                      name: startGameButtonNode.name ?? "",
+                                      position: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.position),
+                                      angle: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.eulerAngles)),
+                    ])
+                let data = try! JSONEncoder().encode(event)
+                BeerKit.sendEvent("sceneActionEvent", data: data)
+                
+            case .remoCon:
+                gameBaseView.isHidden = true
+                remoConBaseView.isHidden = false
+                addSceneView()
+                self.sceneView.isHidden = true
+            case .camera:
+                addSceneView()
+                gameBaseView.isHidden = true
+            }
             
-//            transitToContinueVC()
+        }else {
+            switch DeviceTypeHolder.shared.type {
+            case .main:
+                addSceneView()
+                remoConBaseView.isHidden = false
+                addSlideBoardNode()
+                gameBaseView.isHidden = true
+                
+    //            transitToContinueVC()
+                
+            case .remoCon:
+                gameBaseView.isHidden = true
+                remoConBaseView.isHidden = false
+                addSceneView()
+                self.sceneView.isHidden = true
+            case .camera:
+                addSceneView()
+                gameBaseView.isHidden = true
+            }
             
-        case .remoCon:
-            gameBaseView.isHidden = true
-            remoConBaseView.isHidden = false
-            addSceneView()
-            self.sceneView.isHidden = true
-        case .camera:
-            addSceneView()
-            gameBaseView.isHidden = true
         }
+        
         
         backToTopPageButton.rx.tap
             .subscribe(onNext: { [weak self] element in
@@ -149,6 +204,8 @@ class GameViewController: UIViewController {
         slideStepper.rx.value
             .subscribe(onNext: { [weak self] element in
                 
+                if DeviceTypeHolder.shared.type != .remoCon { return }
+                    
                 let intValue = Int(element)
                                 
                 let data = "\(intValue)".toData()
@@ -174,22 +231,38 @@ class GameViewController: UIViewController {
         connectRemoConSwitch.rx.value
             .subscribe(onNext: { [weak self] element in
                 guard let self = self else { return }
-                self.isSendRemoConInfo = element
+                self.isSendRemoConInfo.accept(element)
             }).disposed(by: disposeBag)
         
         connectCameraSwitch.rx.value
             .subscribe(onNext: { [weak self] element in
                 guard let self = self else { return }
                 if element {
-                    
+                    self.sendinitialNodesShowdEvent()
                 }else {
                     
                 }
             }).disposed(by: disposeBag)
         
+        BeerKit.onEvent("secretEvent") { peerID, data in
+            if DeviceTypeHolder.shared.type != .main { return }
+            print("secret受け取った")
+            self.taimeisanLifePoint = 0.0
+            self.taimeisanLifeBar.animateTo(progress: CGFloat(self.taimeisanLifePoint / 100)) {
+                if self.taimeisanLifeBar.progress <= 0.0 {
+                    AudioUtil.playSound(of: .guaaa)
+                    
+                    self.KO_Animation()
+                    self.taimeisanKnockedDown()
+                }
+            }
+        }
+        
     }
     
     func handleStepValue(data: Data?) {
+        if isQuickModeOn { return }
+        
         print("handleValue")
         guard let data = data else { return }
         let value = data.toString() ?? "0"
@@ -251,7 +324,9 @@ class GameViewController: UIViewController {
     
     private func resetGame() {
         let vmInput = GameViewModel
-            .Input(targetHit: _targetHit.asObservable())
+            .Input(targetHit: _targetHit.asObservable(),
+                   isSendRemoConInfo: isSendRemoConInfo
+            )
         
         let vmDependency = GameViewModel
             .Dependency(motionDetector: MotionDetector(),
@@ -282,6 +357,24 @@ class GameViewController: UIViewController {
     func showPistolAndStartButton() {
         addStartGameButtonNode()
         addPistolForRemoCon()
+        // 他のデバイスに通知
+        let event = SceneActionEvent(
+            type: .initialNodesShowed,
+            nodes: [
+                GameSceneNode(type: .pistol,
+                              name: remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.name ?? "",
+                              position: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.position),
+                              angle: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.eulerAngles)),
+                GameSceneNode(type: .startGameButton,
+                              name: startGameButtonNode.name ?? "",
+                              position: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.position),
+                              angle: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.eulerAngles)),
+            ])
+        let data = try! JSONEncoder().encode(event)
+        BeerKit.sendEvent("sceneActionEvent", data: data)
+    }
+    
+    func sendinitialNodesShowdEvent() {
         // 他のデバイスに通知
         let event = SceneActionEvent(
             type: .initialNodesShowed,
@@ -805,7 +898,7 @@ class GameViewController: UIViewController {
             startGameButtonNode.eulerAngles = angle
         }else {
             let cameraPosition = sceneView.pointOfView?.position ?? SCNVector3()
-            startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.2, z: cameraPosition.z - 0.4)
+            startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.4, z: cameraPosition.z - 0.4)
         }
         
         sceneView.scene.rootNode.addChildNode(startGameButtonNode)
@@ -969,7 +1062,7 @@ extension GameViewController: ARSCNViewDelegate {
             BeerKit.sendEvent("sceneActionEvent", data: data)
             
         case .remoCon:
-            if !isSendRemoConInfo { return }
+            if !isSendRemoConInfo.value { return }
             guard let camera = sceneView.pointOfView else {
                 return
             }

@@ -18,6 +18,9 @@ class TopViewController: UIViewController {
     @IBOutlet weak var chooseMainDeviceButton: UIButton!
     @IBOutlet weak var chooseRemoConDeviceButton: UIButton!
     @IBOutlet weak var chooseCameraDeviceButton: UIButton!
+    
+    @IBOutlet weak var quickModeSwitch: UISwitch!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,11 @@ class TopViewController: UIViewController {
                 self.transitToGameView()
             }).disposed(by: disposeBag)
         
+//        quickModeSwitch.rx.value
+//            .subscribe(onNext: { element in
+//                
+//            }).disposed(by: disposeBag)
+        
         BeerKit.onConnect { (myPeerId, peerId) in
             DispatchQueue.main.async {
                 print("\(peerId.displayName)と接続しました")
@@ -51,6 +59,7 @@ class TopViewController: UIViewController {
     private func transitToGameView() {
         let storyboard: UIStoryboard = UIStoryboard(name: "GameViewController", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! GameViewController
+        vc.isQuickModeOn = quickModeSwitch.isOn
         self.present(vc, animated: true)
     }
 }

@@ -13,11 +13,14 @@ import PKHUD
 class GameViewModel {
     let bulletsCountImage: Observable<UIImage?>
     let weaponFired: Observable<Void>
+    
+//    let isSendRemoConInfo: Observable<Bool>
 
     private let disposeBag = DisposeBag()
     
     struct Input {
         let targetHit: Observable<Void>
+        let isSendRemoConInfo: BehaviorRelay<Bool>
     }
     
     struct Dependency {
@@ -34,15 +37,23 @@ class GameViewModel {
         self.weaponFired = dependency.currentWeapon.fired
         
         var isContinueVCVisible = false
+        
+//        let _isSendRemoConInfo = BehaviorRelay<Bool>(value: false)
+//        self.isSendRemoConInfo = input.isSendRemoConInfo.asObservable()
 
         dependency.motionDetector.firingMotionDetected
             .subscribe(onNext: { _ in
                 if DeviceTypeHolder.shared.type == .remoCon {
                     if isContinueVCVisible {
                         BeerKit.sendEvent("yesContinue")
+                        print("firingMotionDetected yesContinue")
                         print("vm yesContinue流した")
-                    }else {
+                    }else if input.isSendRemoConInfo.value {
+                        print("firingMotionDetected fireWeapon")
                         BeerKit.sendEvent("fireWeapon")
+                    }else {
+                        print("firingMotionDetected decreaseStepValue")
+//                        BeerKit.sendEvent("decreaseStepValue")
                     }
                 }
             }).disposed(by: disposeBag)
@@ -51,11 +62,23 @@ class GameViewModel {
             .subscribe(onNext: { _ in
                 if DeviceTypeHolder.shared.type == .remoCon {
                     if isContinueVCVisible {
+                        print("reloadingMotionDetected noContinue")
                         BeerKit.sendEvent("noContinue")
                         print("vm noContinue流した")
-                    }else {
+                    }else if input.isSendRemoConInfo.value {
+                        print("reloadingMotionDetected reloadWeapon")
                         BeerKit.sendEvent("reloadWeapon")
+                    }else {
+                        print("reloadingMotionDetected increaseStepValue")
+//                        BeerKit.sendEvent("increaseStepValue")
                     }
+                }
+            }).disposed(by: disposeBag)
+        
+        dependency.motionDetector.secretEventMotionDetected
+            .subscribe(onNext: { _ in
+                if DeviceTypeHolder.shared.type == .remoCon {
+                    BeerKit.sendEvent("secretEvent")
                 }
             }).disposed(by: disposeBag)
 
