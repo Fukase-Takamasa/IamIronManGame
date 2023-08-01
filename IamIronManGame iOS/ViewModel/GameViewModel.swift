@@ -96,3 +96,27 @@ extension Data {
         return self.withUnsafeBytes { $0.load(as: Bool.self) }
     }
 }
+
+extension String {
+    func toData() -> Data? {
+        return self.data(using: .utf8)
+    }
+}
+
+extension Data {
+    func toString() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
+}
+
+extension Int {
+    func toData() -> Data {
+        return withUnsafeBytes(of: self) { Data($0) }
+    }
+}
+
+extension Data {
+    func toInt() -> Int? {
+        return self.withUnsafeBytes { $0.load(as: Int.self) }
+    }
+}
