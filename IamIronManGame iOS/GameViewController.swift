@@ -39,6 +39,8 @@ class GameViewController: UIViewController {
     private var isPlayerKnockedDown = false
     private var isWorldMapSent = false
     private var isButtonHighliting = false
+    
+    var isSendRemoConInfo = false
         
     // - notification
     private let _targetHit = PublishRelay<Void>()
@@ -52,9 +54,17 @@ class GameViewController: UIViewController {
     @IBOutlet weak var remoConBaseView: UIView!
     @IBOutlet weak var backToTopPageButton: UIButton!
     @IBOutlet weak var slideStepper: UIStepper!
+
+    @IBOutlet weak var connectRemoConSwitch: UISwitch!
+    
+    @IBOutlet weak var connectCameraSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.transitToEndingVC()
+        })
         
         //MARK: - input
         let vmInput = GameViewModel
@@ -108,28 +118,11 @@ class GameViewController: UIViewController {
         switch DeviceTypeHolder.shared.type {
         case .main:
             addSceneView()
-            addPistolForRemoCon()
             remoConBaseView.isHidden = false
-//            addStartGameButtonNode()
             addSlideBoardNode()
+            gameBaseView.isHidden = true
             
-            // 他のデバイスに通知
-            let event = SceneActionEvent(
-                type: .initialNodesShowed,
-                nodes: [
-                    GameSceneNode(type: .pistol,
-                                  name: remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.name ?? "",
-                                  position: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.position),
-                                  angle: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.eulerAngles)),
-//                    GameSceneNode(type: .startGameButton,
-//                                  name: startGameButtonNode.name ?? "",
-//                                  position: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.position),
-//                                  angle: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.eulerAngles)),
-                ])
-            let data = try! JSONEncoder().encode(event)
-            BeerKit.sendEvent("sceneActionEvent", data: data)
-            
-            transitToContinueVC()
+//            transitToContinueVC()
             
         case .remoCon:
             gameBaseView.isHidden = true
@@ -155,31 +148,79 @@ class GameViewController: UIViewController {
         
         slideStepper.rx.value
             .subscribe(onNext: { [weak self] element in
-                let data = "\(element)".toData()
-                BeerKit.sendEvent("stepValueChanged", data: data)
+                
+                let intValue = Int(element)
+                                
+                let data = "\(intValue)".toData()
+                print("slideStepper.rx.value: \(intValue), data: \(data)")
+
+                if DeviceTypeHolder.shared.type == .main {
+                    print("mainなのでhandle")
+                    self?.handleStepValue(data: data)
+                }else {
+                    print("mainじゃないのでsendEvent")
+                    BeerKit.sendEvent("stepValueChanged", data: data)
+                }
             }).disposed(by: disposeBag)
         
         BeerKit.onEvent("stepValueChanged") { peerID, data in
-            guard let data = data else { return }
+            print("stepValueChangedのEvent")
             if DeviceTypeHolder.shared.type == .main {
-                switch data.toInt() ?? 0 {
-                case -1:
-                    self.showSlideImageView(false)
-                    self.startGameButtonNode.isHidden = true
-                    
-                case 0...4:
-                    self.showSlideImageView(true)
-                    self.startGameButtonNode.isHidden = true
-                    self.showSlideImage(at: Int(data.toInt() ?? 0))
-
-                case 5:
-                    self.showSlideImageView(false)
-                    self.addStartGameButtonNode()
-                    self.startGameButtonNode.isHidden = false
-                default:
-                    break
-                }
+                print("mainなので受け取ったEventをhandle")
+                self.handleStepValue(data: data)
             }
+        }
+        
+        connectRemoConSwitch.rx.value
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else { return }
+                self.isSendRemoConInfo = element
+            }).disposed(by: disposeBag)
+        
+        connectCameraSwitch.rx.value
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else { return }
+                if element {
+                    
+                }else {
+                    
+                }
+            }).disposed(by: disposeBag)
+        
+    }
+    
+    func handleStepValue(data: Data?) {
+        print("handleValue")
+        guard let data = data else { return }
+        let value = data.toString() ?? "0"
+        let num = Int(value) ?? 0
+        switch num {
+        case -1:
+            print("-1")
+            self.showSlideImageView(false)
+            slideBoardNode.isHidden = false
+            self.startGameButtonNode.isHidden = true
+            
+        case 0...4:
+            print("0...4")
+            slideBoardNode.isHidden = false
+            self.showSlideImageView(true)
+            self.startGameButtonNode.isHidden = true
+            self.showSlideImage(at: num)
+
+        case 5:
+            print("5")
+//            self.showSlideImageView(false)
+//            let placeHolderTextNode = slideBoardNode.childNode(withName: "preparingTextNode", recursively: false)!
+//            let imageViewNode = slideBoardNode.childNode(withName: "imageView", recursively: false)!
+            slideBoardNode.isHidden = true
+//            placeHolderTextNode
+            
+//            self.addStartGameButtonNode()
+            self.showPistolAndStartButton()
+            self.startGameButtonNode.isHidden = false
+        default:
+            break
         }
     }
     
@@ -236,6 +277,26 @@ class GameViewController: UIViewController {
         playerLifeBar.animateTo(progress: playerLifePoint)
         
         startGame()
+    }
+    
+    func showPistolAndStartButton() {
+        addStartGameButtonNode()
+        addPistolForRemoCon()
+        // 他のデバイスに通知
+        let event = SceneActionEvent(
+            type: .initialNodesShowed,
+            nodes: [
+                GameSceneNode(type: .pistol,
+                              name: remoConPistolParentNode.childNode(withName: "pistol", recursively: false)?.name ?? "",
+                              position: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.position),
+                              angle: SceneNodeUtil.createVector3Entity(from: remoConPistolParentNode.eulerAngles)),
+                GameSceneNode(type: .startGameButton,
+                              name: startGameButtonNode.name ?? "",
+                              position: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.position),
+                              angle: SceneNodeUtil.createVector3Entity(from: startGameButtonNode.eulerAngles)),
+            ])
+        let data = try! JSONEncoder().encode(event)
+        BeerKit.sendEvent("sceneActionEvent", data: data)
     }
     
     private func handleReceivedSceneActionEvent(_ event: SceneActionEvent) {
@@ -399,6 +460,7 @@ class GameViewController: UIViewController {
     }
         
     private func startGame() {
+        gameBaseView.isHidden = false
         let cameraPos = sceneView.pointOfView?.position ?? SCNVector3()
         let taimeisanPosition = SCNVector3(x: cameraPos.x, y: cameraPos.y, z: cameraPos.z - 1.5)
         addTaimeisan(position: taimeisanPosition)
@@ -623,7 +685,9 @@ class GameViewController: UIViewController {
     }
     
     private func transitToEndingVC() {
-        
+        let storyboard: UIStoryboard = UIStoryboard(name: "EndingViewController", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! EndingViewController
+        self.present(vc, animated: true)
     }
     
     private func shootTaimeiBullet(index: Int) {
@@ -713,31 +777,14 @@ class GameViewController: UIViewController {
     }
     
     private func showSlideImageView(_ isShow: Bool) {
-//        let placeHolderTextNode = slideBoardNode.childNode(withName: "preparingTextNode", recursively: false)!
-        if sceneView.scene.rootNode.childNodes.contains(where: { node in
-            node.name == "slideBoard"
-        }) {
-            print("slideBoardというnodeがある")
-        }else {
-            print("slideBoardというnodeがない")
-            return
-        }
+        let placeHolderTextNode = slideBoardNode.childNode(withName: "preparingTextNode", recursively: false)!
         let imageViewNode = slideBoardNode.childNode(withName: "imageView", recursively: false)!
-//        placeHolderTextNode.isHidden = isShow
+        placeHolderTextNode.isHidden = isShow
         imageViewNode.isHidden = !isShow
     }
     
     private func showSlideImage(at index: Int) {
-        if sceneView.scene.rootNode.childNodes.contains(where: { node in
-            node.name == "slideBoard"
-        }) {
-            print("slideBoardというnodeがある")
-        }else {
-            print("slideBoardというnodeがない")
-            return
-        }
         let imageViewNode = slideBoardNode.childNode(withName: "imageView", recursively: false)!
-
         let geometry = imageViewNode.geometry
         geometry?.firstMaterial?.diffuse.contents = UIImage(named: "slide_\(index).jpeg")
         imageViewNode.geometry = geometry!
@@ -758,7 +805,7 @@ class GameViewController: UIViewController {
             startGameButtonNode.eulerAngles = angle
         }else {
             let cameraPosition = sceneView.pointOfView?.position ?? SCNVector3()
-            startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.4, z: cameraPosition.z - 0.2)
+            startGameButtonNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y + 0.2, z: cameraPosition.z - 0.4)
         }
         
         sceneView.scene.rootNode.addChildNode(startGameButtonNode)
@@ -922,6 +969,7 @@ extension GameViewController: ARSCNViewDelegate {
             BeerKit.sendEvent("sceneActionEvent", data: data)
             
         case .remoCon:
+            if !isSendRemoConInfo { return }
             guard let camera = sceneView.pointOfView else {
                 return
             }

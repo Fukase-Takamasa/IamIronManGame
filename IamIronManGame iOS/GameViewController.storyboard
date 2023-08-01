@@ -218,12 +218,38 @@
                                         <rect key="frame" x="755" y="113" width="94" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stepper>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sWZ-6h-CoR">
+                                        <rect key="frame" x="815" y="168" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="リモコン を同期" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8T-ic-mLT">
+                                        <rect key="frame" x="737.5" y="165" width="69.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カメラ を同期" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEG-Lb-yvN">
+                                        <rect key="frame" x="743" y="228" width="52" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tIU-8Z-0i4">
+                                        <rect key="frame" x="815" y="232" width="51" height="31"/>
+                                    </switch>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sWZ-6h-CoR" secondAttribute="trailing" constant="32" id="CXb-bc-6VL"/>
+                                    <constraint firstItem="sWZ-6h-CoR" firstAttribute="leading" secondItem="D8T-ic-mLT" secondAttribute="trailing" constant="8" symbolic="YES" id="DWe-Yy-G59"/>
+                                    <constraint firstAttribute="trailing" secondItem="tIU-8Z-0i4" secondAttribute="trailing" constant="32" id="GJW-oO-d7l"/>
                                     <constraint firstAttribute="trailing" secondItem="fJK-lv-RXl" secondAttribute="trailing" constant="39" id="QwU-xe-9Hq"/>
+                                    <constraint firstItem="rEG-Lb-yvN" firstAttribute="top" secondItem="D8T-ic-mLT" secondAttribute="bottom" constant="22" id="SaG-IQ-n9d"/>
+                                    <constraint firstItem="D8T-ic-mLT" firstAttribute="top" secondItem="vFq-3V-c8b" secondAttribute="bottom" constant="20" id="Uns-C5-tt9"/>
                                     <constraint firstAttribute="trailing" secondItem="vFq-3V-c8b" secondAttribute="trailing" constant="47" id="ZaG-rL-oUB"/>
+                                    <constraint firstItem="sWZ-6h-CoR" firstAttribute="top" secondItem="vFq-3V-c8b" secondAttribute="bottom" constant="23" id="aGW-fU-AHP"/>
                                     <constraint firstItem="fJK-lv-RXl" firstAttribute="top" secondItem="efn-As-f18" secondAttribute="top" constant="45" id="eYe-G1-iYH"/>
                                     <constraint firstItem="vFq-3V-c8b" firstAttribute="top" secondItem="fJK-lv-RXl" secondAttribute="bottom" constant="33" id="pHL-ZP-2Ms"/>
+                                    <constraint firstItem="tIU-8Z-0i4" firstAttribute="leading" secondItem="rEG-Lb-yvN" secondAttribute="trailing" constant="20" id="uTX-ua-3Sq"/>
+                                    <constraint firstItem="tIU-8Z-0i4" firstAttribute="top" secondItem="sWZ-6h-CoR" secondAttribute="bottom" constant="33" id="zVD-HC-T5s"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -244,6 +270,8 @@
                     <connections>
                         <outlet property="backToTopPageButton" destination="fJK-lv-RXl" id="qeX-kC-zjF"/>
                         <outlet property="bulletsCountImageView" destination="fAS-2G-FjW" id="1vZ-xw-KPh"/>
+                        <outlet property="connectCameraSwitch" destination="tIU-8Z-0i4" id="MHJ-fL-UCf"/>
+                        <outlet property="connectRemoConSwitch" destination="sWZ-6h-CoR" id="7lQ-2I-aFV"/>
                         <outlet property="gameBaseView" destination="oqh-9M-mgg" id="CAk-B1-gB1"/>
                         <outlet property="koImage" destination="GtN-1d-HP1" id="kvy-NC-fOi"/>
                         <outlet property="playerLifeBar" destination="ATU-00-nw8" id="ZuF-QP-kHr"/>

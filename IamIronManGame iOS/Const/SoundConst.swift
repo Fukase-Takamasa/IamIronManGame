@@ -8,6 +8,8 @@
 import Foundation
 
 enum Sounds: String, CaseIterable {
+    case ultraSoulHey = "ultraSoulHey"
+    
     case pistolSet = "pistol-slide"
     case pistolShoot = "pistol-fire"
     case pistolOutBullets = "pistol-out-bullets"

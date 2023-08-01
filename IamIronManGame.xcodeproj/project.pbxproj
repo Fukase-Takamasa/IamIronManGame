@@ -35,6 +35,9 @@
 		8696BD9C2A776EBB004F9068 /* SceneActionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */; };
 		8696BD9F2A77DDC1004F9068 /* ContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696BD9D2A77DDC1004F9068 /* ContinueViewController.swift */; };
 		8696BDA02A77DDC1004F9068 /* ContinueViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8696BD9E2A77DDC1004F9068 /* ContinueViewController.storyboard */; };
+		86B811612A78A02A00BB8216 /* ultraSoulHey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86B811602A78A02A00BB8216 /* ultraSoulHey.mp3 */; };
+		86B811642A78A09700BB8216 /* EndingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B811632A78A09700BB8216 /* EndingViewController.swift */; };
+		86B811662A78A09C00BB8216 /* EndingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B811652A78A09C00BB8216 /* EndingViewController.storyboard */; };
 		86C40BC02A7540070040189E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BBF2A7540070040189E /* TopViewController.swift */; };
 		86C40BC22A7540130040189E /* TopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C40BC12A7540130040189E /* TopViewController.storyboard */; };
 		86C40BE42A75438E0040189E /* GameConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40BC42A75438E0040189E /* GameConst.swift */; };
@@ -143,6 +146,9 @@
 		8696BD9B2A776EBB004F9068 /* SceneActionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneActionEvent.swift; sourceTree = "<group>"; };
 		8696BD9D2A77DDC1004F9068 /* ContinueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueViewController.swift; sourceTree = "<group>"; };
 		8696BD9E2A77DDC1004F9068 /* ContinueViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContinueViewController.storyboard; sourceTree = "<group>"; };
+		86B811602A78A02A00BB8216 /* ultraSoulHey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ultraSoulHey.mp3; sourceTree = "<group>"; };
+		86B811632A78A09700BB8216 /* EndingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingViewController.swift; sourceTree = "<group>"; };
+		86B811652A78A09C00BB8216 /* EndingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EndingViewController.storyboard; sourceTree = "<group>"; };
 		86C40BBF2A7540070040189E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		86C40BC12A7540130040189E /* TopViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopViewController.storyboard; sourceTree = "<group>"; };
 		86C40BC42A75438E0040189E /* GameConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConst.swift; sourceTree = "<group>"; };
@@ -314,6 +320,9 @@
 				86C40C172A7547930040189E /* GameViewController.storyboard */,
 				8696BD9D2A77DDC1004F9068 /* ContinueViewController.swift */,
 				8696BD9E2A77DDC1004F9068 /* ContinueViewController.storyboard */,
+				86B811632A78A09700BB8216 /* EndingViewController.swift */,
+				86B811652A78A09C00BB8216 /* EndingViewController.storyboard */,
+				86B811622A78A08600BB8216 /* New Group1 */,
 				864C87922A554D9900EFC5C3 /* LaunchScreen.storyboard */,
 			);
 			path = "IamIronManGame iOS";
@@ -356,6 +365,13 @@
 				8678D03A2A76AD2A0026A241 /* LabelNode.swift */,
 			);
 			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		86B811622A78A08600BB8216 /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		86C40BC32A75438E0040189E /* Const */ = {
@@ -433,6 +449,7 @@
 		86C40C1A2A754BB00040189E /* mp3 */ = {
 			isa = PBXGroup;
 			children = (
+				86B811602A78A02A00BB8216 /* ultraSoulHey.mp3 */,
 				86C40C1B2A754BB00040189E /* startWhistle.mp3 */,
 				86C40C1C2A754BB00040189E /* pistol-out-bullets.mp3 */,
 				86C40C1D2A754BB00040189E /* pistol-slide.mp3 */,
@@ -627,6 +644,7 @@
 				86C40C6B2A754C300040189E /* ending.mp3 in Resources */,
 				864C87912A554D9900EFC5C3 /* Main.storyboard in Resources */,
 				86C40C342A754BB00040189E /* endWhistle.mp3 in Resources */,
+				86B811662A78A09C00BB8216 /* EndingViewController.storyboard in Resources */,
 				86C40C612A754C300040189E /* pikagoro.mp3 in Resources */,
 				86C40C2E2A754BB00040189E /* westernPistolShoot.mp3 in Resources */,
 				86C40C712A754C300040189E /* poko.mp3 in Resources */,
@@ -647,6 +665,7 @@
 				86C40C312A754BB00040189E /* bazookaSet.mp3 in Resources */,
 				86C40C742A754C300040189E /* uu.mp3 in Resources */,
 				86C40C602A754C300040189E /* reikiyo.mp3 in Resources */,
+				86B811612A78A02A00BB8216 /* ultraSoulHey.mp3 in Resources */,
 				86C40C722A754C300040189E /* aquaPointBarFilled.mp3 in Resources */,
 				86C40C2C2A754BB00040189E /* pistol-out-bullets.mp3 in Resources */,
 				86C40C682A754C300040189E /* soko.mp3 in Resources */,
@@ -814,6 +833,7 @@
 				86C40BEF2A75438E0040189E /* UserDefaults+Extension.swift in Sources */,
 				867DF8982A729C3C004846C6 /* SceneViewSettingUtil.swift in Sources */,
 				86C40C022A7544C60040189E /* GameViewController.swift in Sources */,
+				86B811642A78A09700BB8216 /* EndingViewController.swift in Sources */,
 				86C40BF42A75438E0040189E /* CameraAuthUtil.swift in Sources */,
 				86C40C152A7545930040189E /* CurrentWeapon.swift in Sources */,
 				86C40BEA2A75438E0040189E /* UIImageView+Extension.swift in Sources */,
